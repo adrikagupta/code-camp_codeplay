@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "515903293805",
+    "firebase_url": "https://foster-852a7.firebaseio.com",
+    "project_id": "foster-852a7",
+    "storage_bucket": "foster-852a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515903293805:android:979f816fe4566669bcf264",
+        "android_client_info": {
+          "package_name": "com.example.foster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515903293805-evvgrgb0v7p85mubgtf5nrblcrc913d1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foster",
+            "certificate_hash": "2feb33f5342b7c50f39610d860595fc44fd16ddd"
+          }
+        },
+        {
+          "client_id": "515903293805-84udh4v1ujkapbstsi19g3adsvundr6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAliHTomeZNRCl07t8vjf-lGKxawAawVl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515903293805-84udh4v1ujkapbstsi19g3adsvundr6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
