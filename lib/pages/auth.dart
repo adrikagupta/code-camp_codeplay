@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
     print('signed In');
     await createAccountInFirestore();
     Navigator.push(context, MaterialPageRoute(builder: (context) => Sleep()));
-  }
+
 
   @override
   void initState() {
@@ -47,7 +47,6 @@ class _LoginState extends State<Login> {
     //     print(account.displayName);
     //   }
     // });
-  }
 
   @override
   Widget build(BuildContext context) {
