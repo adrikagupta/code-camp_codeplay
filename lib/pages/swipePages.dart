@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:foster/model/slide.dart';
+import 'package:foster/models/slide.dart';
 import 'package:foster/widget/slideDot.dart';
 import 'package:foster/widget/slideItem.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foster/model/slide.dart';
+import 'package:foster/models/slide.dart';
 
 
 
