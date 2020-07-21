@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
       title: 'Foster',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        primarySwatch: Color.fromRGBO(43, 203, 186, 1),
-        accentColor: Color.fromRGBO(253, 114, 114, 1.0)
+        primaryColor: Color.fromRGBO(43, 203, 186, 1.0),
+        accentColor: Color.fromRGBO(209, 216, 224, 1.0),
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
