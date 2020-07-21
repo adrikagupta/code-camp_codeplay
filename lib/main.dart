@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color.fromRGBO(43, 203, 186, 1.0),
         accentColor: Color.fromRGBO(209, 216, 224, 1.0),
       ),
-      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: Home(),
     );
   }
 }
