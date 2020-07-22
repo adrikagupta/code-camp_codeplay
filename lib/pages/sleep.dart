@@ -23,11 +23,12 @@ class _SleepState extends State<Sleep> {
   // List endDates =[];
   DateTime startDate =DateTime.now();
   DateTime endDate =DateTime.now();
-  List<SleepModel> sleepSchedule; 
+  List<SleepModel> sleepSchedule =[]; 
   // List sleepDuration =[];
   @override
   void initState() {
     super.initState();
+    // sleepSchedule.length=0;
     // startDates.add(now);
     // startDates.add(now);
     // endDates.add(now);
@@ -270,7 +271,8 @@ class _SleepState extends State<Sleep> {
           });
             print(sleepSchedule.length);
           return Column(
-            children : 
+            children :
+            //  [Text('hi')],
             sleep(),
           );
         },
@@ -306,7 +308,7 @@ class _SleepState extends State<Sleep> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
                 Text(
-                    'Day ${sleepSchedule.length+1}:',
+                    'Enter: ',
                     // 'hi',
                     style: TextStyle(
                       color: Colors.white,

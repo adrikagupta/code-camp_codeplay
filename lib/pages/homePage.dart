@@ -7,6 +7,7 @@ import 'package:foster/pages/sleep.dart';
 
 import 'package:foster/pages/contactHelp.dart';
 import 'package:foster/pages/exercise.dart';
+import 'package:foster/pages/sleepSchedule.dart';
 
 import 'package:foster/pages/taskList.dart';
 import 'package:foster/widgets/customIcon.dart';
@@ -14,6 +15,8 @@ import 'package:foster/widgets/customIcon.dart';
 
 
 class HomePage extends StatefulWidget {
+  final String userId;
+  HomePage({this.userId});
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -61,7 +64,7 @@ class _HomePageState extends State<HomePage> {
        ),
       body:PageView(
         children: <Widget>[
-          Sleep(),
+          SleepSchedule(userId: widget.userId),
           Exercise(),
           InfoPage(),
           TaskList(),

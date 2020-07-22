@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:foster/pages/homePage.dart';
 import 'package:foster/pages/sleepSchedule.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -92,7 +93,7 @@ class _LoginState extends State<Login> {
           child: Text('Google Sign in'),
           onPressed: () async {
             String id = await signInWithGoogle();
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SleepSchedule(userId: id)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(userId: id)));
             }
           ),
       ),
