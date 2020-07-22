@@ -60,15 +60,17 @@ class _LoginState extends State<Login> {
     // print('signInWithGoogle succeeded: $currentUser');
   }
 
+
   @override
   void initState() {
     super.initState();
-    // googleSignIn.onCurrentUserChanged.listen((account) {
-    //   if(account!=null){
-    //     print('User Signed in $account');
-    //     print(account.displayName);
-    //   }  
-    // });
+//     googleSignIn.onCurrentUserChanged.listen((account) {
+//       if(account!=null){
+//         print('User Signed in $account');
+//         print(account.displayName);
+//       }  
+//     });
+//   }
     googleSignIn.signInSilently(suppressErrors: false).then((account){
       if(account!=null){
         print('User Signed in $account');
