@@ -51,11 +51,11 @@ class _CreateTaskState extends State<CreateTask> {
 
   @override
   Widget build(BuildContext context) {
-    // var height = MediaQuery.of(context).size.height;
+    var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var orientation = MediaQuery.of(context).orientation;
     return Scaffold(
       backgroundColor: Color.fromRGBO(253, 114, 114,1.0),
-      // backgroundColor: Color.fromRGBO(254, 164, 127,1.0),
       body:SafeArea(
         child: SingleChildScrollView(
               child: Column(
@@ -75,13 +75,29 @@ class _CreateTaskState extends State<CreateTask> {
                         onPressed: ()=>Navigator.pop(context)
                         ),
                     ),
-                      
-                     Text("Create New Task", style: TextStyle(
+                      Row(
+                        children: <Widget>[
+                        Text("Create Task", style: TextStyle(
                        color: Colors.white,
                        fontSize: 40,
                        fontFamily: 'Merienda',
                        fontWeight: FontWeight.bold,
                      ),),
+                      SizedBox(width: width*0.05,),
+                      Container(
+                        height: orientation==Orientation.portrait?70:0,
+                        width: width*0.2,
+                        decoration: BoxDecoration(
+                          
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/task2.png"),
+                            fit: BoxFit.cover,
+                          )
+                        ),
+                      )
+                        ],
+                      ),
+                     
                      SizedBox(height: 30,),
                      Text("Name",style: TextStyle(
                        color: Colors.white,

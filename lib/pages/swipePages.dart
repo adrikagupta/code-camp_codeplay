@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:foster/models/slide.dart';
+import 'package:foster/pages/auth.dart';
 import 'package:foster/widget/slideDot.dart';
 import 'package:foster/widget/slideItem.dart';
 
@@ -17,7 +18,7 @@ class _SwipePagesState extends State<SwipePages> {
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    Timer.periodic(Duration(seconds: 3), (Timer timer) {
       if (_currentPage < 3) {
         _currentPage++;
       } else {
@@ -111,7 +112,9 @@ class _SwipePagesState extends State<SwipePages> {
                         padding: const EdgeInsets.all(15),
                         color: Color.fromRGBO(56, 173, 169,1.0),
                         textColor: Colors.white,
-                        onPressed: () {} //Add here the login page link
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                        } 
                       ),
                     )
               ],

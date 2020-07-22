@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:foster/pages/auth.dart';
-=======
-import 'package:foster/pages/swipePages.dart';
 
->>>>>>> todo
+import 'package:foster/pages/createTask.dart';
+import 'package:foster/pages/splashScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Yrsa',
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: Login()
+      home: SplashScreen()
     );
   }
 }
