@@ -21,6 +21,7 @@ class User{
 
   addDocument(User user) async {
      await userCollection.document(user.id).setData({
+      "id":user.id,
       "name" : user.name,
       "email": user.email,
       "photoUrl": user.photoUrl,

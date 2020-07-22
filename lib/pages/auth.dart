@@ -12,12 +12,14 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 final usersRef = Firestore.instance.collection('users');
 
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+   User userEntered; 
   
   // createAccountInFirestore() async {
   //   final GoogleSignInAccount user = googleSignIn.currentUser;
@@ -59,7 +61,26 @@ class _LoginState extends State<Login> {
     // final GoogleSignInAccount currentUser =  googleSignIn.currentUser;
     // assert(user.uid == currentUser.id);
     // print('signInWithGoogle succeeded: $currentUser');
+  createAccountInFirestore() async {
+    final GoogleSignInAccount user = googleSignIn.currentUser;
+    final DocumentSnapshot doc = await usersRef.document(user.id).get();
+    userEntered = User(id: user.id, name: user.displayName, email: user.email, photoUrl: user.photoUrl);
+    if(!doc.exists){
+      await User().addDocument(userEntered);
+    }
+
   }
+  }
+  
+  // login() async {
+  //   await googleSignIn.signIn();
+  //   print('signed In');
+  //   await createAccountInFirestore();
+  //   print(userEntered.id);
+  //   print(userEntered.email);
+  //   print("in auth");
+  //   Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(currentUser: userEntered)));
+  // }
 
 
   @override
