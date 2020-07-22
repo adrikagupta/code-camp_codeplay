@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:foster/models/slide.dart';
 import 'package:foster/pages/auth.dart';
-import 'package:foster/widget/slideDot.dart';
-import 'package:foster/widget/slideItem.dart';
+import 'package:foster/widgets/slideDot.dart';
+import 'package:foster/widgets/slideItem.dart';
 
 class SwipePages extends StatefulWidget {
   @override

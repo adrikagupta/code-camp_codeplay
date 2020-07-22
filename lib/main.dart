@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:foster/pages/auth.dart';
-
-import 'package:foster/pages/createTask.dart';
 import 'package:foster/pages/splashScreen.dart';
+import 'package:foster/pages/homePage.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,8 +24,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color.fromRGBO(209, 216, 224, 1.0),
         fontFamily: 'Yrsa',
       ),
-      // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: SplashScreen()
+      home: HomePage()
     );
   }
 }

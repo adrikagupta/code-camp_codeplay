@@ -41,8 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
             bottom: height*0.09,
             left: orientation==Orientation.portrait?width/2 - 125: width/2,
             child: Container(
-              height: width*0.7,
-              width: width*0.7,
+              height: orientation==Orientation.portrait?width*0.7:width*0.37,
+              width: orientation==Orientation.portrait?width*0.7:width*0.37,
               decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/frame.png"),

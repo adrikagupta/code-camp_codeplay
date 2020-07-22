@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   intl: ^0.16.1
   flutter_rounded_date_picker: ^1.0.4
+  curved_navigation_bar: ^0.3.3
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,9 @@ flutter:
       fonts:
         - asset: assets/fonts/Yrsa-Bold.ttf
         - asset: assets/fonts/Yrsa-Regular.ttf
+    - family: MyFlutterApp
+      fonts:
+        - asset: fonts/MyFlutterApp.ttf    
 
   #
   # For details regarding fonts from package dependencies,
