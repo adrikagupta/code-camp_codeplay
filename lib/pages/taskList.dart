@@ -65,23 +65,23 @@ class _TaskListState extends State<TaskList> {
               ),
 
                            
-                            Container(
-                              margin: orientation==Orientation.portrait?EdgeInsets.only(top:40):EdgeInsets.only(top:5),
-                              height:orientation== Orientation.portrait? height*0.6: height*0.5,
-                              child: StreamBuilder(
-                                stream: tasksListRef.document(widget.currentUserId).collection('tasks').orderBy("orderDate").snapshots(),
-                                builder: (context,snapshot){
-                                  if(!snapshot.hasData){
-                                    return Center(child: CircularProgressIndicator());
-                                  }
+        Container(
+          margin: orientation==Orientation.portrait?EdgeInsets.only(top:40):EdgeInsets.only(top:5),
+          height:orientation== Orientation.portrait? height*0.6: height*0.5,
+          child: StreamBuilder(
+            stream: tasksListRef.document(widget.currentUserId).collection('tasks').orderBy("orderDate").snapshots(),
+            builder: (context,snapshot){
+              if(!snapshot.hasData){
+                return Center(child: CircularProgressIndicator());
+              }
                                     
-                                    return ListView.builder(
-                                      itemCount: snapshot.data.documents.length,
-                                      itemBuilder: (context,index){
-                                        DocumentSnapshot doc = snapshot.data.documents[index];
-                                        TaskItem task= TaskItem.fromDocument(doc);
-                                        return Container(
-                    height:orientation==Orientation.portrait?height*0.13:height*0.3,
+                return ListView.builder(
+                  itemCount: snapshot.data.documents.length,
+                  itemBuilder: (context,index){
+                    DocumentSnapshot doc = snapshot.data.documents[index];
+                    TaskItem task= TaskItem.fromDocument(doc);
+                    return Container(
+                    height:orientation==Orientation.portrait?height*0.12:height*0.3,
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(horizontal:10,vertical:15),
                     margin: EdgeInsets.symmetric(horizontal:10,vertical:5),
