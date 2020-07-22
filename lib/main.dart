@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color.fromRGBO(209, 216, 224, 1.0),
         fontFamily: 'Yrsa',
       ),
-      home: HomePage()
+      home: SplashScreen()
     );
   }
 }
