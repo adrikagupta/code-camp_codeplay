@@ -81,7 +81,7 @@ class _TaskListState extends State<TaskList> {
                     DocumentSnapshot doc = snapshot.data.documents[index];
                     TaskItem task= TaskItem.fromDocument(doc);
                     return Container(
-                    height:orientation==Orientation.portrait?height*0.12:height*0.3,
+                    height:orientation==Orientation.portrait?height*0.12:height*0.25,
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(horizontal:10,vertical:15),
                     margin: EdgeInsets.symmetric(horizontal:10,vertical:5),
