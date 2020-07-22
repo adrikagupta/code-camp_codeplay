@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:foster/models/user_model.dart';
 import 'package:foster/pages/infoPage.dart';
 import 'package:foster/pages/sleep.dart';
 
@@ -14,6 +15,8 @@ import 'package:foster/widgets/customIcon.dart';
 
 
 class HomePage extends StatefulWidget {
+  final User currentUser;
+  HomePage({this.currentUser});
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -64,7 +67,7 @@ class _HomePageState extends State<HomePage> {
           Sleep(),
           Exercise(),
           InfoPage(),
-          TaskList(),
+          TaskList(currentUserId: widget.currentUser?.id),
           ContactHelp(),
         ],
         controller: pageController,

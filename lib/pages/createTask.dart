@@ -1,9 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/rounded_picker.dart';
+import 'package:foster/pages/taskList.dart';
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
+
+final tasksListRef = Firestore.instance.collection('tasksList');
 
 
 class CreateTask extends StatefulWidget {
+  final String currentUserId;
+  CreateTask({this.currentUserId});
   @override
   _CreateTaskState createState() => _CreateTaskState();
 }
@@ -14,6 +21,8 @@ class _CreateTaskState extends State<CreateTask> {
   TextEditingController taskNameController = TextEditingController();
 
   bool remindMe =true;
+  String orderDate;
+  String taskId = Uuid().v4();
 
   selectTime() async{
   final timePicked = await showRoundedTimePicker(
@@ -46,7 +55,26 @@ class _CreateTaskState extends State<CreateTask> {
 );
   setState(() {
     selectedDateController.text = DateFormat.yMMMMd('en_US').format(newDateTime).toString();
+    orderDate = DateFormat('yyyy-MM-dd').format(newDateTime).toString();
   });
+  }
+
+  addTask()async{
+    await tasksListRef.document(widget.currentUserId).collection('tasks').document(taskId).setData({
+      "taskName": taskNameController.text,
+      "taskDate": selectedDateController.text,
+      "taskTime": selectedTimeController.text,
+      "remindMe": remindMe,
+      "orderDate": orderDate,
+      "completed": false,
+      "taskId": taskId,
+    });
+    setState(() {
+      taskId= Uuid().v4();
+    });
+    Navigator.pop(context);
+    
+
   }
 
   @override
@@ -253,7 +281,7 @@ class _CreateTaskState extends State<CreateTask> {
                               width: width*0.5,
                               child: RaisedButton.icon(
                                 color: Color.fromRGBO(253, 114, 114,1.0),
-                                onPressed: (){},
+                                onPressed: ()=>addTask(),
                                 icon: Icon(Icons.add_circle, size:25, color: Colors.white,),
                                 label:Text("Add task", style:TextStyle(color: Colors.white, fontSize: 22))
                               ),

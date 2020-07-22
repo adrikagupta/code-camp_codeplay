@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foster/pages/splashScreen.dart';
-import 'package:foster/pages/homePage.dart';
+
 
 void main() {
   runApp(MyApp());
