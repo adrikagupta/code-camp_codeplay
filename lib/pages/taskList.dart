@@ -95,15 +95,12 @@ class _TaskListState extends State<TaskList> {
                         IconButton(
                             icon: task.completed?Icon(Icons.check_box,size:30,color:Theme.of(context).primaryColor):Icon(Icons.check_box_outline_blank,size:30,color:Theme.of(context).primaryColor),
                              onPressed: ()async{
-                            
                               setState(() {
                                 this.taskCompleted = !taskCompleted;
                               });
                               await tasksListRef.document(widget.currentUserId).collection('tasks').document(task.taskId).updateData({
                                 'completed': taskCompleted,
                               });
-
-                          
                           },
                         ),
                         SizedBox(width: 5,),
@@ -118,18 +115,18 @@ class _TaskListState extends State<TaskList> {
                             Spacer(),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
+                              children: <Widget>[
                                 Text(task.taskDate, style:TextStyle(color:Colors.black54, fontSize: 15,fontFamily: 'Merienda')),
                                 Text(task.taskTime, style:TextStyle(color:Colors.black54, fontSize: 15,fontFamily: 'Merienda')),
-                ],
-              ),
-            ],),
-          ),
-          PopupMenuButton(
-                icon: Icon(Icons.more_vert,size:30,color: Color.fromRGBO(253, 114, 114,0.9),),
-                itemBuilder: (context) => [
-                      PopupMenuItem(
-                        child: FlatButton.icon(
+                              ],
+                            ),
+                          ],),
+                          ),
+                        PopupMenuButton(
+                              icon: Icon(Icons.more_vert,size:30,color: Color.fromRGBO(253, 114, 114,0.9),),
+                              itemBuilder: (context) => [
+                          PopupMenuItem(
+                          child: FlatButton.icon(
                           label:Text("Delete",style:TextStyle(fontSize:20,color: Colors.black87)),
                           icon:Icon(Icons.delete,size:20),
                           onPressed: ()async{
@@ -149,21 +146,20 @@ class _TaskListState extends State<TaskList> {
                       ),
                       
                     ],
+                     ),
+                     ],
+                     ),
+                    );
+                    },
+                  );
+              }
               ),
-        ],
-      ),
-    );
-                                      },
-                                    );
-        
-                                }
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+              )
+              ],
+              ),
             ),
-            Positioned(
+            ),
+              Positioned(
               top:orientation==Orientation.portrait?height*0.17 - 28:5,
               left:orientation==Orientation.portrait? width/2- 28:15,
               child: FloatingActionButton(
