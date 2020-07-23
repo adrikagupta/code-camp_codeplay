@@ -337,7 +337,14 @@ class _SleepState extends State<Sleep> {
                                   side: BorderSide(color: Color.fromRGBO(133, 89, 136, 1.0))
                                 ),
                                 onPressed: () => startDatePicker(context),
-                                child: Text('Select Start date'),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+                                  child: Text('Select Start date',
+                                    style: TextStyle(
+                                      fontSize: 18.0
+                                    ),
+                                  ),
+                                ),
                               ),
                               ],
                             ),
@@ -368,15 +375,23 @@ class _SleepState extends State<Sleep> {
                                   side: BorderSide(color: Color.fromRGBO(133, 89, 136, 1.0))
                                 ),
                                   onPressed: () => endDatePicker(context),
-                                  child: Text('Select End date'),
+                                  child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+                                  child: Text('Select End date',
+                                    style: TextStyle(
+                                      fontSize: 18.0
+                                    ),
+                                  ),
+                                ),
                                 ),
                               ],
                             ),
                           ],
                         ),
+                        SizedBox(height: 45.0,),
                        RaisedButton(
                          textColor: Color.fromRGBO(20, 24, 82, 1.0),
-                         color:  Colors.white, 
+                         color:  Colors.grey[300], 
                          shape: new RoundedRectangleBorder(
                            borderRadius: new BorderRadius.circular(30.0),
                            side: BorderSide(color:Color.fromRGBO(20, 24, 82, 1.0))
@@ -385,7 +400,14 @@ class _SleepState extends State<Sleep> {
                         submit();
                         // await createSleepInFirestore();
                           },
-                        child: Text('Submit'),
+                        child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0),
+                                  child: Text('Submit',
+                                    style: TextStyle(
+                                      fontSize: 22.0
+                                    ),
+                                  ),
+                                ),
                       )
           ],
     ),
