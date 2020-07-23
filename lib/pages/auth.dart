@@ -62,15 +62,15 @@ class _LoginState extends State<Login> {
     // final GoogleSignInAccount currentUser =  googleSignIn.currentUser;
     // assert(user.uid == currentUser.id);
     // print('signInWithGoogle succeeded: $currentUser');
-  createAccountInFirestore() async {
-    final GoogleSignInAccount user = googleSignIn.currentUser;
-    final DocumentSnapshot doc = await usersRef.document(user.id).get();
-    userEntered = User(id: user.id, name: user.displayName, email: user.email, photoUrl: user.photoUrl);
-    if(!doc.exists){
-      await User().addDocument(userEntered);
-    }
+//   createAccountInFirestore() async {
+//     final GoogleSignInAccount user = googleSignIn.currentUser;
+//     final DocumentSnapshot doc = await usersRef.document(user.id).get();
+//     userEntered = User(id: user.id, name: user.displayName, email: user.email, photoUrl: user.photoUrl);
+//     if(!doc.exists){
+//       await User().addDocument(userEntered);
+//     }
 
-  }
+//   }
   }
   
   // login() async {
