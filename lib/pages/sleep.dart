@@ -280,6 +280,14 @@ class _SleepState extends State<Sleep> {
       Container(
               height: MediaQuery.of(context).size.height*0.95,
               decoration: BoxDecoration(
+                // image: DecorationImage(
+                //   image: NetworkImage(
+                //     'https://image.freepik.com/free-vector/mountains-landscape-background_23-2148267129.jpg',
+                //     // 'https://image.freepik.com/free-vector/full-moon-night-ocean-cartoon-illustration_33099-2308.jpg',
+                //     // scale: 1.0
+                //     ),
+                //     // fit: BoxFit.fitHeight,
+                //   ),
                   color: Colors.purple,
                   gradient: new LinearGradient(
                     colors: [
