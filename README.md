@@ -8,6 +8,8 @@ The aim of this app is to help those who have Attention deficit hyperactivity di
 * [Features](#features)
 * [Technologies](#technologies-sed)
 * [Status](#status)
+* [Configuring App](#configuring-app)
+* [Download app](#download-app)
 
 
 ## About ADHD
@@ -47,6 +49,18 @@ Foster is a technological solution for treatment of ADHD that centres on a smart
 
 ## Status
 Project is: in progress
+
+## Configuring App
+To configure Foster App, complete the following steps:
+
+   Complete System Requirements and Prerequisite Tasks. Before you begin configuring Foster App, complete the following system requirements and prerequisite tasks:
+
+	      - Mobile operating systems: Android Jelly Bean, v16, 4.1.x or newer, and iOS 8 or newer.
+	      - Mobile hardware: iOS devices (iPhone 4S or newer) and ARM Android devices
+
+## Download app
+	To download foster, please install the sdk from here: //will be provided after completing
+
 
 
 
