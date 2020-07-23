@@ -59,7 +59,7 @@ To configure Foster App, complete the following steps:
 	- Mobile hardware: iOS devices (iPhone 4S or newer) and ARM Android devices
 
 ## Download app
-	To download foster, please install the sdk from here: //will be provided after completing
+	To download foster, please install the sdk from here: //will be provided after completion of the app
 
 
 
