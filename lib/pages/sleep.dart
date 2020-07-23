@@ -259,24 +259,7 @@ class _SleepState extends State<Sleep> {
         //   children: sleep(),
           
         //     ),
-      StreamBuilder<QuerySnapshot>(
-        stream: sleepRef.document(widget.userId).collection('sleep').orderBy('day',descending: false).snapshots(),
-        builder: (context, snapshot){
-          if(!snapshot.hasData){
-            return CircularProgressIndicator();
-          }
-          sleepSchedule =  [];
-          snapshot.data.documents.forEach((doc){
-            sleepSchedule.add(SleepModel.fromDocument(doc));
-          });
-            print(sleepSchedule.length);
-          return Column(
-            children :
-            //  [Text('hi')],
-            sleep(),
-          );
-        },
-      ),
+      
       Container(
               height: MediaQuery.of(context).size.height*0.95,
               decoration: BoxDecoration(
@@ -409,6 +392,24 @@ class _SleepState extends State<Sleep> {
                 ],
               ),
             ),
+            StreamBuilder<QuerySnapshot>(
+        stream: sleepRef.document(widget.userId).collection('sleep').orderBy('day',descending: false).snapshots(),
+        builder: (context, snapshot){
+          if(!snapshot.hasData){
+            return CircularProgressIndicator();
+          }
+          sleepSchedule =  [];
+          snapshot.data.documents.forEach((doc){
+            sleepSchedule.add(SleepModel.fromDocument(doc));
+          });
+            print(sleepSchedule.length);
+          return Column(
+            children :
+            //  [Text('hi')],
+            sleep(),
+          );
+        },
+      ),
       ],
     );
   }
