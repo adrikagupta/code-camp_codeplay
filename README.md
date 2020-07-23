@@ -1,7 +1,7 @@
 # Foster
-The aim of this app is to help those who have Attention deficit hyperactivity disorder (ADHD). This app helps them to regulate their sleep cycles, take their medications on time, maintain a task planner, perform relaxation techniques like yoga and meditation, and perform exercises.
+The aim of this app is to help those who have Attention deficit hyperactivity disorder (ADHD). This app helps them to regulate their sleep cycles, take their medications on time, maintain a task planner, perform relaxation techniques like yoga and meditation, and perform exercises. <br><br><br>
 
-<img src ="assets/splash screen.jpeg" >
+<img src ="assets/splash screen.jpeg" ><br><br>
 
 ## Table of contents
 * [About ADHD](#about-adhd)
