@@ -7,10 +7,10 @@ The aim of this app is to help those who have Attention deficit hyperactivity di
 * [Vision](#vision)
 * [Features](#features)
 * [Technologies](#technologies-sed)
-* [File Manifest](file-manifest)
 * [Status](#status)
 * [Configuring App](#configuring-app)
 * [Download app](#download-app)
+* [License](#License)
 
 
 ## About ADHD
@@ -47,15 +47,7 @@ Foster is a technological solution for treatment of ADHD that centres on a smart
 * Node.js
 * Dart
 
- ## File Manifest
-* code-camp_codeplay/lib/
- - models : Contains majorly used classes
- - pages : Contains all the screens
- - widgets : Contains widgets which are used repeatedly
-*code-camp_codeplay/assets/
- - images : The images we used in the app
- - fonts : The google fonts used in our app
- 
+
 ## Status
 Project is: in progress
 
@@ -70,6 +62,7 @@ To configure Foster App, complete the following steps:
 ## Download app
 	To download foster, please install the sdk from here: //will be provided after completion of the app
 
-
+## License
+Foster is open source software [licensed as MIT](https://github.com/adrikagupta/code-camp_codeplay/blob/master/LICENSE).
 
 
