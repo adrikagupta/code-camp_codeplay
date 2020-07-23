@@ -63,6 +63,6 @@ To configure Foster App, complete the following steps:
 	To download foster, please install the sdk from here: //will be provided after completion of the app
 
 ## License
-Foster is open source software [licensed as MIT](https://github.com/adrikagupta/code-camp_codeplay/blob/master/LICENSE).
+Foster is an open source software [licensed as MIT](https://github.com/adrikagupta/code-camp_codeplay/blob/master/LICENSE).
 
 
