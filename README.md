@@ -37,7 +37,7 @@ Our vision is to help the person cope up with ADHD and make him/her look at the 
 Foster is a technological solution for treatment of ADHD that centres on a smartphone app. 
 
 ## Features
-
+- User can register using their google account
 - The app provides a Task Planner since organization is a common challenge for adults with ADHD. It plans your tasks as well as notifies you when you need to start it.
 - The app provides a Sleep Tracker which will track your sleep cycle and help you regulate it.
 - The app provides a Medication Tracker which will notify and help you so that you never forget to take medications (if any).
