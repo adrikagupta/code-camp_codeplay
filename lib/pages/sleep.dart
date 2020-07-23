@@ -136,7 +136,7 @@ class _SleepState extends State<Sleep> {
                   ),
                   SizedBox(height: 20.0,),
                   Text(
-                                  'Sleep Duration : '+sleepSchedule[index].duration.toString(),
+                                  'Sleep Duration : '+sleepSchedule[index].duration.toString() + ' hours',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 30.0,
@@ -166,7 +166,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  sleepSchedule[index].start.toLocal().hour.toString() + ' : ' + sleepSchedule[index].start.toLocal().minute.toString(),
+                                  sleepSchedule[index].start.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + sleepSchedule[index].start.toLocal().toString().split(' ')[1].split(':')[0],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -205,7 +205,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  sleepSchedule[index].end.toLocal().hour.toString() + ' : ' + sleepSchedule[index].end.toLocal().minute.toString(),
+                                  sleepSchedule[index].end.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + sleepSchedule[index].end.toLocal().toString().split(' ')[1].split(':')[0],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -321,7 +321,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  startDate.toLocal().hour.toString() + ' : ' + startDate.toLocal().minute.toString(),
+                                  startDate.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + startDate.toLocal().toString().split(' ')[1].split(':')[1],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -352,7 +352,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  endDate.toLocal().hour.toString() + ' : ' + endDate.toLocal().minute.toString(),
+                                  endDate.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + endDate.toLocal().toString().split(' ')[1].split(':')[1],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
