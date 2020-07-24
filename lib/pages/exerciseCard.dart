@@ -111,7 +111,7 @@ class ExerciseCard extends StatelessWidget {
                           
                           ),
                           overflow: TextOverflow.ellipsis,
-                          maxLines: 4,
+                          maxLines: 8,
                         ),
                 ),
                 ],
