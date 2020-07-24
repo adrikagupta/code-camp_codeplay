@@ -1,8 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:foster/models/user_model.dart';
-import 'package:foster/pages/doctorsList.dart';
+
 import 'package:foster/pages/infoPage.dart';
+import 'package:foster/pages/medsTracker.dart';
 import 'package:foster/pages/sleep.dart';
 
 
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
           Exercise(),
           InfoPage(),
           TaskList(currentUserId: widget.userId),
-          DoctorsList(),
+          MedsTracker(),
         ],
         controller: pageController,
         onPageChanged: onPageChanged,
