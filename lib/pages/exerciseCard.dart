@@ -8,8 +8,7 @@ class ExerciseCard extends StatelessWidget {
   ExerciseCard({this.exerciseList, this.exercisePlaylist});
   @override
   Widget build(BuildContext context) {
-  // print(yogaList.imageUrl.split('.').last);
-
+  
     return Container(
       width: MediaQuery.of(context).size.width*0.7,
       child: Stack(
@@ -22,11 +21,6 @@ class ExerciseCard extends StatelessWidget {
             height: MediaQuery.of(context).size.height*0.7,
             decoration: BoxDecoration(
               color: Colors.white,
-              // gradient: LinearGradient(
-              //   colors: [yogaPlaylist.start, yogaPlaylist.end],
-              //   begin: Alignment.topRight,
-              //   end: Alignment.bottomLeft
-              // ),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black12,

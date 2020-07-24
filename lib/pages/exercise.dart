@@ -15,7 +15,14 @@ class _ExerciseState extends State<Exercise> {
   
     return Scaffold(
       body: SafeArea(
-              child: Container(height: 600.0,
+              child: Container(height: MediaQuery.of(context).size.height*0.9,
+              decoration: BoxDecoration(    image: DecorationImage(
+            image: NetworkImage('https://image.freepik.com/free-photo/healthy-lifestyle-healthy-habits-detox-water-fruit-salad-sport-equipment-dumbbells-blue-background-top-view-copy-space_73529-469.jpg'),
+            fit: BoxFit.cover
+            // alignment: Alignment.bottomCenter
+                        )
+                      ),
+            
           child: PageView.builder(
             itemCount: exercisePlaylist.length,
               controller: PageController(viewportFraction: 0.8),
