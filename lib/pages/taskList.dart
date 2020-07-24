@@ -67,7 +67,7 @@ class _TaskListState extends State<TaskList> {
                            
         Container(
           margin: orientation==Orientation.portrait?EdgeInsets.only(top:40):EdgeInsets.only(top:5),
-          height:orientation== Orientation.portrait? height*0.6: height*0.5,
+          height:orientation== Orientation.portrait? height*0.625: height*0.5,
           child: StreamBuilder(
             stream: tasksListRef.document(widget.currentUserId).collection('tasks').orderBy("orderDate").snapshots(),
             builder: (context,snapshot){
@@ -108,10 +108,10 @@ class _TaskListState extends State<TaskList> {
                             child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                             task.completed? Text(task.taskName, 
-                             style:TextStyle(color:Colors.black87, fontSize: 20,fontFamily: 'Merienda',decoration: TextDecoration.lineThrough)):
-                             Text(task.taskName,
-                             style:TextStyle(color:Colors.black87, fontSize: 20,fontFamily: 'Merienda')),
+                             task.completed? Text(task.taskName,overflow: TextOverflow.ellipsis, 
+                             style:TextStyle(color:Colors.black87, fontSize: 18,fontFamily: 'Merienda',decoration: TextDecoration.lineThrough)):
+                             Text(task.taskName,overflow: TextOverflow.ellipsis,
+                             style:TextStyle(color:Colors.black87, fontSize: 18,fontFamily: 'Merienda')),
                             Spacer(),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -161,7 +161,7 @@ class _TaskListState extends State<TaskList> {
             ),
               Positioned(
               top:orientation==Orientation.portrait?height*0.17 - 28:5,
-              left:orientation==Orientation.portrait? width/2- 28:15,
+              left:orientation==Orientation.portrait? width/2- 28: width-80,
               child: FloatingActionButton(
               child: Icon(Icons.add, size:35,color: Colors.white),
               backgroundColor: Theme.of(context).primaryColor.withOpacity(0.8),
