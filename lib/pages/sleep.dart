@@ -136,7 +136,7 @@ class _SleepState extends State<Sleep> {
                   ),
                   SizedBox(height: 20.0,),
                   Text(
-                                  'Sleep Duration : '+sleepSchedule[index].duration.toString(),
+                                  'Sleep Duration : '+sleepSchedule[index].duration.toString() + ' hours',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 30.0,
@@ -166,7 +166,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  sleepSchedule[index].start.toLocal().hour.toString() + ' : ' + sleepSchedule[index].start.toLocal().minute.toString(),
+                                  sleepSchedule[index].start.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + sleepSchedule[index].start.toLocal().toString().split(' ')[1].split(':')[0],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -205,7 +205,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  sleepSchedule[index].end.toLocal().hour.toString() + ' : ' + sleepSchedule[index].end.toLocal().minute.toString(),
+                                  sleepSchedule[index].end.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + sleepSchedule[index].end.toLocal().toString().split(' ')[1].split(':')[0],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -259,27 +259,18 @@ class _SleepState extends State<Sleep> {
         //   children: sleep(),
           
         //     ),
-      StreamBuilder<QuerySnapshot>(
-        stream: sleepRef.document(widget.userId).collection('sleep').orderBy('day',descending: false).snapshots(),
-        builder: (context, snapshot){
-          if(!snapshot.hasData){
-            return CircularProgressIndicator();
-          }
-          sleepSchedule =  [];
-          snapshot.data.documents.forEach((doc){
-            sleepSchedule.add(SleepModel.fromDocument(doc));
-          });
-            print(sleepSchedule.length);
-          return Column(
-            children :
-            //  [Text('hi')],
-            sleep(),
-          );
-        },
-      ),
+      
       Container(
               height: MediaQuery.of(context).size.height*0.95,
               decoration: BoxDecoration(
+                // image: DecorationImage(
+                //   image: NetworkImage(
+                //     'https://image.freepik.com/free-vector/mountains-landscape-background_23-2148267129.jpg',
+                //     // 'https://image.freepik.com/free-vector/full-moon-night-ocean-cartoon-illustration_33099-2308.jpg',
+                //     // scale: 1.0
+                //     ),
+                //     // fit: BoxFit.fitHeight,
+                //   ),
                   color: Colors.purple,
                   gradient: new LinearGradient(
                     colors: [
@@ -330,7 +321,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  startDate.toLocal().hour.toString() + ' : ' + startDate.toLocal().minute.toString(),
+                                  startDate.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + startDate.toLocal().toString().split(' ')[1].split(':')[1],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -346,7 +337,14 @@ class _SleepState extends State<Sleep> {
                                   side: BorderSide(color: Color.fromRGBO(133, 89, 136, 1.0))
                                 ),
                                 onPressed: () => startDatePicker(context),
-                                child: Text('Select Start date'),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+                                  child: Text('Select Start date',
+                                    style: TextStyle(
+                                      fontSize: 18.0
+                                    ),
+                                  ),
+                                ),
                               ),
                               ],
                             ),
@@ -361,7 +359,7 @@ class _SleepState extends State<Sleep> {
                                     ),
                                 ),
                                 Text(
-                                  endDate.toLocal().hour.toString() + ' : ' + endDate.toLocal().minute.toString(),
+                                  endDate.toLocal().toString().split(' ')[1].split(':')[0] + ' : ' + endDate.toLocal().toString().split(' ')[1].split(':')[1],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -377,15 +375,23 @@ class _SleepState extends State<Sleep> {
                                   side: BorderSide(color: Color.fromRGBO(133, 89, 136, 1.0))
                                 ),
                                   onPressed: () => endDatePicker(context),
-                                  child: Text('Select End date'),
+                                  child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+                                  child: Text('Select End date',
+                                    style: TextStyle(
+                                      fontSize: 18.0
+                                    ),
+                                  ),
+                                ),
                                 ),
                               ],
                             ),
                           ],
                         ),
+                        SizedBox(height: 45.0,),
                        RaisedButton(
                          textColor: Color.fromRGBO(20, 24, 82, 1.0),
-                         color:  Colors.white, 
+                         color:  Colors.grey[300], 
                          shape: new RoundedRectangleBorder(
                            borderRadius: new BorderRadius.circular(30.0),
                            side: BorderSide(color:Color.fromRGBO(20, 24, 82, 1.0))
@@ -394,13 +400,38 @@ class _SleepState extends State<Sleep> {
                         submit();
                         // await createSleepInFirestore();
                           },
-                        child: Text('Submit'),
+                        child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0),
+                                  child: Text('Submit',
+                                    style: TextStyle(
+                                      fontSize: 22.0
+                                    ),
+                                  ),
+                                ),
                       )
           ],
     ),
                 ],
               ),
             ),
+            StreamBuilder<QuerySnapshot>(
+        stream: sleepRef.document(widget.userId).collection('sleep').orderBy('day',descending: false).snapshots(),
+        builder: (context, snapshot){
+          if(!snapshot.hasData){
+            return CircularProgressIndicator();
+          }
+          sleepSchedule =  [];
+          snapshot.data.documents.forEach((doc){
+            sleepSchedule.add(SleepModel.fromDocument(doc));
+          });
+            print(sleepSchedule.length);
+          return Column(
+            children :
+            //  [Text('hi')],
+            sleep(),
+          );
+        },
+      ),
       ],
     );
   }

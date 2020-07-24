@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foster/pages/homePage.dart';
 import 'package:foster/pages/sleepSchedule.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -67,6 +68,7 @@ class _LoginState extends State<Login> {
     // final GoogleSignInAccount currentUser =  googleSignIn.currentUser;
     // assert(user.uid == currentUser.id);
     // print('signInWithGoogle succeeded: $currentUser');
+
   // createAccountInFirestore() async {
   //   final GoogleSignInAccount user = googleSignIn.currentUser;
   //   final DocumentSnapshot doc = await usersRef.document(user.id).get();
@@ -200,17 +202,63 @@ class _LoginState extends State<Login> {
     return Scaffold(
      
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Login',
+          style: TextStyle(
+              // fontWeight: FontWeight.w600,
+              fontSize: 22.0,
+              // color: Colors.lightGreen[200],
+          ),),
         centerTitle: true,
+        backgroundColor: Color.fromRGBO(253, 114, 114,0.5) ,
       ),
-      body: Center(
-        child: RaisedButton(
-          child: Text('Google Sign in'),
-          onPressed: () async {
-            String id = await signInWithGoogle();
-            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(userId: id)));
-            }
+      body: Container(
+        height: MediaQuery.of(context).size.height*0.9,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage('https://image.freepik.com/free-vector/colorful-background-watercolor-design_23-2148481367.jpg'),
+            fit: BoxFit.cover,
+            ),
+        ),
+        child: GestureDetector(
+          child: Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+            width: MediaQuery.of(context).size.width*0.7,
+            height: MediaQuery.of(context).size.height*0.3,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(253, 114, 114,0.5),
+              borderRadius: BorderRadius.all(
+                Radius.circular(20.0)
+              )
+            ),),
+                 Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+                   children: <Widget>[
+                     SvgPicture.asset(
+                      'assets/images/icons8-gmail.svg',
+                      height: MediaQuery.of(context).size.height*0.15,
+                ),
+                Text('Google Sign in',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 28.0,
+                    color: Colors.lightGreen[200],
+                  ),
+                ),
+                   ],
+                 ),
+                  
+              ],
+            ),
           ),
+          onTap: () async {
+                    String id = await signInWithGoogle();
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(userId: id)));
+                    },
+        ),
       ),
     );
   }
