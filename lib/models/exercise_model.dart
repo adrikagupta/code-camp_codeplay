@@ -35,7 +35,7 @@ class ExerciseList{
 //squat video
 final List<ExerciseList> strength = [
     ExerciseList(title: 'Lunges', imageUrl: 'https://media3.giphy.com/media/l3q2Q3sUEkEyDvfPO/200.gif', description: 'A basic lunge works the muscles in your lower body, including your quadriceps, hamstrings, glutes, and calves.', benifit: '', videoUrl: 'https://www.youtube.com/watch?v=QOVaHwm-Q6U', ),
-    ExerciseList(title: 'Squat to overhead raise', imageUrl: 'https://www.sparkpeople.com/assets/exercises/Dumbbell-Squat-with-Calf-Raise-and-Overhead-Press.gif', description: 'This exercise not only works your glutes and leg muscles, it also works the muscles in your core, back, and shoulders, as well as your triceps.', benifit: '', videoUrl: 'https://www.youtube.com/watch?v=7JtzNydMIJ8', ),
+    ExerciseList(title: 'Squat to overhead raise', imageUrl: 'https://www.sparkpeople.com/assets/exercises/Dumbbell-Squat-with-Calf-Raise-and-Overhead-Press.gif', description: 'This exercise not only works your glutes and leg muscles, it also works the muscles in your core, back, and shoulders, as well as your triceps.', benifit: '', videoUrl: 'https://www.youtube.com/watch?v=pn8mqlG0nkE', ),
     ExerciseList(title: 'Planks', imageUrl: 'https://thumbs.gfycat.com/ShorttermPepperyDartfrog-small.gif', description: 'Planks are an excellent exercise for improving your core strength and stability. This exercise can also strengthen the muscles in your back, chest, and shoulders.', benifit: '', videoUrl: 'https://www.youtube.com/watch?v=pSHjTRCQxIw', ),
     ExerciseList(title: 'Pushups', imageUrl: 'https://thumbs.gfycat.com/GlossySkinnyDuckbillcat-small.gif', description: 'Standard pushups work the chest muscles (pectorals), as well as the shoulder muscles, triceps, and abdominals.', benifit: '', videoUrl: 'https://www.youtube.com/watch?v=rjc0O7OXS3g', ),
     ExerciseList(title: 'Resistance band pull apart', imageUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/workouts/2016/12/bandpullapart-1480689234.gif', description: 'This exercise works the muscles in your back, shoulders, and arms.', benifit: '', videoUrl: 'https://www.youtube.com/watch?v=okRUV0bdXAU', ),
@@ -57,7 +57,7 @@ final List<ExerciseList> aerobics = [
       title: 'Biking', 
       imageUrl: 'https://image.freepik.com/free-vector/girl-stationary-bike-concept-sport-active-lifestyle-isolated_174639-107.jpg',
        description: ' This low-impact exercise can help develop leg strength.', 
-       videoUrl: 'https://www.youtube.com/watch?v=csNeUKYBW0E',
+       videoUrl: 'https://www.youtube.com/watch?v=hyXUOhqYLGM',
      ),
      ExerciseList(
       title: 'Jump rope', 
@@ -69,7 +69,7 @@ final List<ExerciseList> aerobics = [
       title: 'Elliptical', 
       imageUrl: 'https://image.freepik.com/free-vector/woman-making-exercises_107173-10086.jpg',
        description: 'Elliptical machines provide a good cardiovascular workout that’s less stressful on the knees, hips, and back compared to the treadmill or running on the road or trails', 
-       videoUrl: 'https://www.youtube.com/watch?v=NE4d74BboPg',
+       videoUrl: 'https://www.youtube.com/watch?v=j38LNpTLwzY',
      ),
 ];
 // biking and elleptical
