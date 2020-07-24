@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foster/pages/doctorsList.dart';
+import 'package:foster/pages/sleep.dart';
 import 'package:foster/pages/splashScreen.dart';
 
 
