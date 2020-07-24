@@ -28,10 +28,9 @@ class _CreateTaskState extends State<CreateTask> {
   final timePicked = await showRoundedTimePicker(
   context: context,
   initialTime: TimeOfDay.now(),
-  );
-  setState(() {
-    selectedTimeController.text = timePicked.format(context);
-  });
+  ).then((value) => selectedTimeController.text = value.format(context));
+    
+  
   }
 
   selectDate() async{
@@ -52,14 +51,14 @@ class _CreateTaskState extends State<CreateTask> {
   firstDate: DateTime(DateTime.now().year - 1),
   lastDate: DateTime(DateTime.now().year + 1),
   borderRadius: 16,
-);
-  setState(() {
-    selectedDateController.text = DateFormat.yMMMMd('en_US').format(newDateTime).toString();
-    orderDate = DateFormat('yyyy-MM-dd').format(newDateTime).toString();
-  });
+).then((value) {
+    selectedDateController.text = DateFormat.yMMMMd('en_US').format(value).toString();
+    orderDate = DateFormat('yyyy-MM-dd').format(value).toString();
+   });
   }
 
   addTask()async{
+    Navigator.pop(context);
     await tasksListRef.document(widget.currentUserId).collection('tasks').document(taskId).setData({
       "taskName": taskNameController.text,
       "taskDate": selectedDateController.text,
@@ -69,10 +68,10 @@ class _CreateTaskState extends State<CreateTask> {
       "completed": false,
       "taskId": taskId,
     });
-    setState(() {
+
       taskId= Uuid().v4();
-    });
-    Navigator.pop(context);
+  
+    
     
 
   }
