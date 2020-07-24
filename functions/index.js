@@ -19,7 +19,8 @@ exports.onTaskCreation = functions.firestore
     const createdTask = snapshot.data();
     
     
-
+    if(createdTask.remindMe ==true){
+        
     var now = new Date();
     var nowIso = now.toISOString();
     var current = Date.parse(nowIso);
@@ -64,6 +65,7 @@ exports.onTaskCreation = functions.firestore
     
         }
     },diff)
+}
 
 
 })

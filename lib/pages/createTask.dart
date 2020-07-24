@@ -1,3 +1,6 @@
+//Todo: Order with time
+//Todo: make time and date compulsory
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/rounded_picker.dart';
@@ -51,7 +54,7 @@ class _CreateTaskState extends State<CreateTask> {
   firstDate: DateTime(DateTime.now().year - 1),
   lastDate: DateTime(DateTime.now().year + 1),
   borderRadius: 16,
-).then((value) {
+).then((value){
     selectedDateController.text = DateFormat.yMMMMd('en_US').format(value).toString();
     orderDate = DateFormat('yyyy-MM-dd').format(value).toString();
    });
