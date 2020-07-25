@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:foster/models/med.dart';
 import 'package:foster/pages/createMed.dart';
-import 'package:foster/pages/createTask.dart';
 import 'package:foster/widgets/customIcon.dart';
 import 'package:intl/intl.dart';
 
@@ -99,7 +96,7 @@ class _MedsTrackerState extends State<MedsTracker> {
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(60))
                         ),
                         padding: orientation==Orientation.portrait?EdgeInsets.only(left:10,top:5):EdgeInsets.only(left:width*0.12,top:height*0.05),
-                        child: Text("Medicine Tacker",textAlign: TextAlign.center,style: TextStyle(fontSize: orientation==Orientation.portrait?height*0.047:height*0.11,color:Colors.white,fontFamily: 'Merienda',fontWeight: FontWeight.bold),)),
+                        child: Text("Medicine Tracker",textAlign: TextAlign.center,style: TextStyle(fontSize: orientation==Orientation.portrait?height*0.047:height*0.11,color:Colors.white,fontFamily: 'Merienda',fontWeight: FontWeight.bold),)),
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.only(bottomRight: Radius.circular(60)),

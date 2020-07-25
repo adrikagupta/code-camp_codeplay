@@ -1,10 +1,8 @@
 //Todo: Order with time
-//Todo: make time and date compulsory
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/rounded_picker.dart';
-import 'package:foster/pages/taskList.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
@@ -28,7 +26,7 @@ class _CreateTaskState extends State<CreateTask> {
   String taskId = Uuid().v4();
 
   selectTime() async{
-  final timePicked = await showRoundedTimePicker(
+  await showRoundedTimePicker(
   context: context,
   initialTime: TimeOfDay.now(),
   ).then((value) => selectedTimeController.text = value.format(context));
@@ -37,7 +35,7 @@ class _CreateTaskState extends State<CreateTask> {
   }
 
   selectDate() async{
-  DateTime newDateTime = await showRoundedDatePicker(
+ await showRoundedDatePicker(
   context: context,
   background: Colors.transparent,
   

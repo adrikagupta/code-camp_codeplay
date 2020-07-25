@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:foster/pages/auth.dart';
-import 'package:foster/pages/createMed.dart';
-import 'package:foster/pages/medsTracker.dart';
-
-import 'package:foster/pages/sleep.dart';
-import 'package:foster/pages/splashScreen.dart';
-
 
 void main() {
   runApp(MyApp());

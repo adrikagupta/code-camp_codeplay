@@ -1,19 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-
-import 'package:foster/models/user_model.dart';
 import 'package:foster/pages/exerciseNyoga.dart';
-
-import 'package:foster/pages/sleep.dart';
-
-
-
 import 'package:foster/pages/infoPage.dart';
 import 'package:foster/pages/medsTracker.dart';
-
-import 'package:foster/pages/exercise.dart';
 import 'package:foster/pages/sleepSchedule.dart';
-
 import 'package:foster/pages/taskList.dart';
 import 'package:foster/widgets/customIcon.dart';
 // import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -28,7 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   PageController pageController;
-  int _selectedIndex = 0;
+  int _selectedIndex=0;
 
   @override
   void initState() { 

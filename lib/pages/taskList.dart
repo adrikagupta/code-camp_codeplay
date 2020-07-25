@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:foster/models/task.dart';
 import 'package:foster/pages/createTask.dart';
 import 'package:intl/intl.dart';
+import 'package:smart_flare/actors/smart_flare_actor.dart';
 
 class TaskList extends StatefulWidget {
   final String currentUserId;
@@ -13,6 +14,56 @@ class TaskList extends StatefulWidget {
 
 class _TaskListState extends State<TaskList> {
   bool taskCompleted = false;
+
+  showWinner(bool completed, BuildContext context){
+    if(completed==true){
+      showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+              title:Text("Congratulations on completing a task! You are a winner. There are always new, grander challenges to confront, and a true winner will embrace each one.") ,
+              titleTextStyle:  TextStyle(fontSize: 16,fontFamily: 'Merienda',color: Colors.black),
+              content:Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Stack(
+                  children: <Widget>[
+                                  Container(
+                                  child: Center(
+                                  child: SmartFlareActor(
+                                  height: MediaQuery.of(context).size.height*0.6,
+                                  width: double.infinity,
+                                  filename: "assets/rive/fireworks.flr",
+                                  startingAnimation: 'fireworks', 
+                                      ),
+                                ),
+                                   ),
+                              
+                                 Container(
+                                child: Center(
+                                child: SmartFlareActor(
+                                height:double.infinity,
+                                width: double.infinity,
+                                filename: "assets/rive/first.flr",
+                                startingAnimation: 'first', 
+                                    ),
+                              ),
+                                 ),
+                                
+                  ],
+                ),
+              ),
+              actions: <Widget>[  
+              FlatButton(  
+                child:Text('<-- Go back',style: TextStyle(color: Colors.red[300],fontSize: 18),),  
+                onPressed: ()=>Navigator.pop(context)
+              ),  
+            ],  
+            ));
+    }
+  }
 
   @override
   void initState() { 
@@ -95,12 +146,11 @@ class _TaskListState extends State<TaskList> {
                         IconButton(
                             icon: task.completed?Icon(Icons.check_box,size:30,color:Theme.of(context).primaryColor):Icon(Icons.check_box_outline_blank,size:30,color:Theme.of(context).primaryColor),
                              onPressed: ()async{
-                              setState(() {
-                                this.taskCompleted = !taskCompleted;
-                              });
                               await tasksListRef.document(widget.currentUserId).collection('tasks').document(task.taskId).updateData({
-                                'completed': taskCompleted,
+                                'completed': !task.completed,
                               });
+                              showWinner(!task.completed,context);
+                              
                           },
                         ),
                         SizedBox(width: 5,),
@@ -127,7 +177,7 @@ class _TaskListState extends State<TaskList> {
                               itemBuilder: (context) => [
                           PopupMenuItem(
                           child: FlatButton.icon(
-                          label:Text("Delete",style:TextStyle(fontSize:20,color: Colors.black87)),
+                          label:Text("Delete",style:TextStyle(fontSize:15,color: Colors.black87)),
                           icon:Icon(Icons.delete,size:20),
                           onPressed: ()async{
                             
@@ -139,7 +189,7 @@ class _TaskListState extends State<TaskList> {
                       ),
                       PopupMenuItem(
                         child: FlatButton.icon(
-                          label:Text("Cancel",style:TextStyle(fontSize:20,color: Colors.black87)),
+                          label:Text("Cancel",style:TextStyle(fontSize:15,color: Colors.black87)),
                           icon:Icon(Icons.cancel,size:20),
                           onPressed: ()=>Navigator.pop(context)    
                         ),
