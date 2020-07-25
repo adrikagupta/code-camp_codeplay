@@ -26,20 +26,7 @@ class _SleepScheduleState extends State<SleepSchedule> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    //    appBar: AppBar(
-    //     title: Text('Sleep Schedule'),
-    //     centerTitle: true,
-    //     automaticallyImplyLeading: false,
-    //     actions: <Widget>[
-    //       RaisedButton.icon(
-    //         icon: Icon(Icons.exit_to_app),
-    //         onPressed: ()=> logout(),
-    //          label: Text('Logout'),
-    //       )
-    //     ],
-        
-    //   ),
-      body:  
+    body:  
       SingleChildScrollView(
               child: Column(
           children: <Widget>[
