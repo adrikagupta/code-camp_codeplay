@@ -37,6 +37,13 @@ dependencies:
   curved_navigation_bar: ^0.3.3
   uuid: ^2.2.0
   http: ^0.12.2
+  horizontal_calendar: ^0.0.4
+  horizontal_calendar_widget: ^1.0.2
+  button_picker: ^0.1.0
+  flutter_time_picker_spinner: ^1.0.6+1
+  flutter_cupertino_date_picker: ^1.0.26+2
+  date_picker_timeline: ^1.2.0
+  numberpicker: ^1.2.0
 
 dev_dependencies:
   flutter_test:

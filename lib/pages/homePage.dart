@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
           Exercise(),
           InfoPage(),
           TaskList(currentUserId: widget.userId),
-          MedsTracker(),
+          MedsTracker(currentUserId: widget.userId),
         ],
         controller: pageController,
         onPageChanged: onPageChanged,
