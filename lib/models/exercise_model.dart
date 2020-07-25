@@ -2,12 +2,10 @@
 class ExercisePlaylist{
   String playlistname;
   List<ExerciseList> exerciseList;
-  String backgroundImage;
   String imageUrl;
   ExercisePlaylist({
     this.playlistname, 
     this.exerciseList, 
-    this.backgroundImage, 
     this.imageUrl});
 }
 

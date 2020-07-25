@@ -5,8 +5,9 @@ import 'package:foster/pages/exercisePlaylistCard.dart';
 
 class Exercise extends StatefulWidget {
     final List<ExercisePlaylist> playlist;
+    final String background;
 
-  const Exercise({this.playlist});
+  const Exercise({this.playlist, this.background});
     
   @override
   _ExerciseState createState() => _ExerciseState();
@@ -20,9 +21,9 @@ class _ExerciseState extends State<Exercise> {
   
     return Scaffold(
       body: SafeArea(
-              child: Container(height: MediaQuery.of(context).size.height*0.9,
+              child: Container(height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(    image: DecorationImage(
-            image: NetworkImage('https://image.freepik.com/free-photo/healthy-lifestyle-healthy-habits-detox-water-fruit-salad-sport-equipment-dumbbells-blue-background-top-view-copy-space_73529-469.jpg'),
+            image: NetworkImage(widget.background),
             fit: BoxFit.cover
             // alignment: Alignment.bottomCenter
                         )
