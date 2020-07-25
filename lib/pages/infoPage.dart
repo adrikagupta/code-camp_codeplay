@@ -21,11 +21,9 @@ class InfoPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
+                 crossAxisAlignment: CrossAxisAlignment.end,
                  children: <Widget>[
-                   Align(
-                     alignment:Alignment.centerLeft,
-                                        child: RaisedButton.icon(
+                   RaisedButton.icon(
                        color: Theme.of(context).primaryColor,
                       icon: Icon(Icons.exit_to_app,
                         color: Colors.white,
@@ -37,7 +35,6 @@ class InfoPage extends StatelessWidget {
                        )
                        ),
           ),
-                   ),
           
           Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -298,13 +295,6 @@ class InfoPage extends StatelessWidget {
               ),
             ),
           ),
-          
-           Text(''),
-          Text(''),
-          Text(''),
-          Text(''),
-          Text(''),
-          Text(''),
                  ],
              ),
               ),
