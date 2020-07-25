@@ -136,11 +136,20 @@ final List<ExerciseList> stressRelief = [
      ),
 ];
 
+final List<ExerciseList> pranayama = [
+    ExerciseList(imageUrl: 'https://image.flaticon.com/icons/svg/2647/2647577.svg',title: 'Ujjayi', videoUrl: 'https://www.youtube.com/watch?v=ZwEdfOuhoY4', description: 'Ujjayi creates heat in the body and it also creates stability.', benifit: 'Ujjayi breath during asana practice can be a reminder and an indicator not to rush through poses and not to sacrifice the breath for the sake of getting into an idealised shape of the pose.'),
+    ExerciseList(imageUrl: 'https://image.flaticon.com/icons/svg/2789/2789860.svg',title: 'Nadi Shodhana', videoUrl: 'https://www.youtube.com/watch?v=RUFzLVf5wL4',description: 'Nadi S​h​odhana or Alternate nostril breathing is the most important breathing technique to help keep the mind calm, happy and peaceful.', benifit: 'It balances the breath through both nostrils – we usually have one which is more blocked and this will change through the day. Nadi Shodhana also balances the two hemispheres of the brain.'),
+    ExerciseList(imageUrl: 'https://image.flaticon.com/icons/svg/2647/2647625.svg',title: 'Kapalabhati', videoUrl:'https://www.youtube.com/watch?v=3T47CqbdunY', description: 'The emphasis is on the exhalation through strong, fast abdominal contractions and so has a cleansing effect on the breathing pathways', benifit: 'Kapalabhati also creates heat and increases and stimulates the digestive fire (agni) by strengthening, massaging and toning the abdominal muscles and digestive organs. '),
+    ExerciseList(imageUrl: 'https://image.flaticon.com/icons/svg/2789/2789976.svg',title: 'Agni Sara', videoUrl:'https://www.youtube.com/watch?v=wVYWF9L8eww',description: 'In Agni Sara or Fire Breath, the focus is on expelling the outbreath ', benifit: 'It has many of the same benefits for the abdominal organs and muscles but is often taught using one nostril at a time and at a slower pace.'),
+    ExerciseList(imageUrl: 'https://image.flaticon.com/icons/svg/186/186938.svg',title: 'Bhastrika', videoUrl:'https://www.youtube.com/watch?v=upxeE2BTktc', description: 'Bhastrika is also known as Bellows Breath. It focuses on the inhalation just as much as the exhalation.', benifit: 'It produces heat, detoxifying and energizing the body. It tones the abdominal muscles and the digestive system.'),
+  ];
+
 List<ExercisePlaylist> exercisePlaylist = [
     ExercisePlaylist(playlistname: 'Strength', exerciseList: strength, imageUrl: 'https://image.freepik.com/free-vector/fitness-people-doing-exercise_18591-36152.jpg'),
     ExercisePlaylist(playlistname: 'Aerobics', exerciseList: aerobics,   imageUrl: 'https://image.freepik.com/free-vector/sport-exercise-training-home-during-covid-19-coronavirus-outbreak_40345-764.jpg'),
     ExercisePlaylist(playlistname: 'Concentration', exerciseList: concentration, imageUrl: 'https://image.freepik.com/free-vector/woman-meditating-nature_113065-182.jpg'),
-    ExercisePlaylist(playlistname: 'Stress Relief', exerciseList: stressRelief, imageUrl: 'https://image.freepik.com/free-vector/hand-drawn-international-day-yoga_52683-38368.jpg'),
+    ExercisePlaylist(playlistname: 'Stress Relief', exerciseList: stressRelief, imageUrl: 'https://image.freepik.com/free-vector/people-doing-yoga_23-2148550249.jpg'),
+    ExercisePlaylist(playlistname: 'Pranayama', exerciseList: pranayama, imageUrl: 'https://image.freepik.com/free-vector/hand-drawn-international-day-yoga_52683-38368.jpg'),
   ];
 
-  //should add image to concentration
+  
