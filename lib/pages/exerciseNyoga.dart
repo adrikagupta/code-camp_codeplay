@@ -15,17 +15,17 @@ class _YogaExerciseState extends State<YogaExercise> {
     return SafeArea(
       child: Container(
             height: MediaQuery.of(context).size.height*0.9,
-            //   decoration: BoxDecoration(    image: DecorationImage(
-            // image: NetworkImage('https://image.freepik.com/free-vector/mandala-patterns_1308-37912.jpg'),
-            // fit: BoxFit.cover
-            // // alignment: Alignment.bottomCenter
-            //             )
-            //           ),
+              decoration: BoxDecoration(    image: DecorationImage(
+            image: AssetImage('assets/images/breathe.jpg'),
+            fit: BoxFit.cover
+            // alignment: Alignment.bottomCenter
+                        )
+                      ),
 
         child: Column(
           
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
 
           children: <Widget>[
              GestureDetector(
@@ -38,7 +38,7 @@ class _YogaExerciseState extends State<YogaExercise> {
                      width: MediaQuery.of(context).size.width*0.8,
                       height: MediaQuery.of(context).size.height*0.23,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
+                        color: Color.fromRGBO(234, 134, 133,1.0),
                     // gradient: LinearGradient(
                     //   colors: [
                     //     Theme.of(context).primaryColorLight,
@@ -101,7 +101,7 @@ class _YogaExerciseState extends State<YogaExercise> {
                      width: MediaQuery.of(context).size.width*0.8,
                       height: MediaQuery.of(context).size.height*0.23,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
+                        color: Color.fromRGBO(248, 194, 145,1.0),
                     // gradient: LinearGradient(
                     //   colors: [Theme.of(context).primaryColor],
                     //   begin: Alignment.topRight,
