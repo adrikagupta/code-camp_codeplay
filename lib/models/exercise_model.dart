@@ -72,6 +72,47 @@ final List<ExerciseList> aerobics = [
      ),
 ];
 
+final List<ExerciseList> big5 = [
+    ExerciseList(
+      title: 'Seated Row', 
+      imageUrl: 'https://cdn2.vectorstock.com/i/1000x1000/86/96/seated-rowing-exercise-vector-25198696.jpg',
+       description: "Rowing is an exercise where the purpose is to strengthen the muscles that draw the rower's arms toward the body as well as those that retract the scapulae and those that support the spine.",
+       videoUrl: 'https://youtu.be/xQNrFHEMhI4',
+     ),
+    ExerciseList(
+      title: 'Bench press', 
+      imageUrl: 'https://workouttrends.com/wp-content/uploads/2013/10/Barbell-Bench-Press.gif',
+       description: 'The bench press is an upper-body weight training exercise in which the trainee presses a weight upwards while lying on a weight training bench.', 
+       videoUrl: 'https://youtu.be/0AEVLvFJLRI',
+     ),
+     ExerciseList(
+      title: 'Pull Down', 
+      imageUrl: 'https://www.fitprince.com/wp-content/uploads/2017/02/Front-vs-Rear-lat-pull-downs.jpg',
+       description: '  It performs the functions of downward rotation and depression of the scapulae combined with adduction and extension of the shoulder joint.', 
+       videoUrl: 'https://youtu.be/AOpi-p0cJkc',
+     ),
+     ExerciseList(
+      title: 'Overhead Press', 
+      imageUrl: 'https://www.oxygenmag.com/.image/t_share/MTY5NzQzMDU4NDgzNTUzNDQx/dumbbell-military-press-image.jpg',
+       description: 'The press, overhead press or shoulder press is a weight training exercise with many variations, typically performed while standing, in which a weight is pressed straight upwards from racking position until the arms are locked out overhead, while the legs, lower back and abs maintain balance.', 
+       videoUrl: 'https://www.youtube.com/watch?v=flpBXsHSVDk',
+     ),
+     ExerciseList(
+      title: 'Leg Press', 
+      imageUrl: 'https://johnsifferman.com/img/leg_press.jpg',
+       description: 'The leg press is a weight training exercise in which the individual pushes a weight or resistance away from them using their legs.', 
+       videoUrl: 'https://youtu.be/2sRzh9loTbM',
+     ),
+];
+
+List<ExercisePlaylist> exercisePlaylist = [
+    ExercisePlaylist(playlistname: 'Strength', exerciseList: strength, imageUrl: 'https://image.freepik.com/free-vector/fitness-people-doing-exercise_18591-36152.jpg'),
+    ExercisePlaylist(playlistname: 'Aerobics', exerciseList: aerobics,   imageUrl: 'https://image.freepik.com/free-vector/sport-exercise-training-home-during-covid-19-coronavirus-outbreak_40345-764.jpg'),
+    ExercisePlaylist(playlistname: 'THE “BIG 5”', exerciseList: big5 ,   imageUrl: 'https://image.freepik.com/free-vector/workout-concept-illustration_114360-1120.jpg'),
+    
+    ];
+
+
 final List<ExerciseList> concentration = [
     ExerciseList(
       title: ' Padmasana', 
@@ -144,12 +185,12 @@ final List<ExerciseList> pranayama = [
     ExerciseList(imageUrl: 'https://image.flaticon.com/icons/svg/186/186938.svg',title: 'Bhastrika', videoUrl:'https://www.youtube.com/watch?v=upxeE2BTktc', description: 'Bhastrika is also known as Bellows Breath. It focuses on the inhalation just as much as the exhalation.', benifit: 'It produces heat, detoxifying and energizing the body. It tones the abdominal muscles and the digestive system.'),
   ];
 
-List<ExercisePlaylist> exercisePlaylist = [
-    ExercisePlaylist(playlistname: 'Strength', exerciseList: strength, imageUrl: 'https://image.freepik.com/free-vector/fitness-people-doing-exercise_18591-36152.jpg'),
-    ExercisePlaylist(playlistname: 'Aerobics', exerciseList: aerobics,   imageUrl: 'https://image.freepik.com/free-vector/sport-exercise-training-home-during-covid-19-coronavirus-outbreak_40345-764.jpg'),
+
+List<ExercisePlaylist> yogaPlaylist = [
     ExercisePlaylist(playlistname: 'Concentration', exerciseList: concentration, imageUrl: 'https://image.freepik.com/free-vector/woman-meditating-nature_113065-182.jpg'),
     ExercisePlaylist(playlistname: 'Stress Relief', exerciseList: stressRelief, imageUrl: 'https://image.freepik.com/free-vector/people-doing-yoga_23-2148550249.jpg'),
     ExercisePlaylist(playlistname: 'Pranayama', exerciseList: pranayama, imageUrl: 'https://image.freepik.com/free-vector/hand-drawn-international-day-yoga_52683-38368.jpg'),
   ];
+
 
   

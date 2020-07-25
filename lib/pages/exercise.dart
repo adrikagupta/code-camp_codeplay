@@ -4,11 +4,16 @@ import 'package:foster/pages/exercisePlaylist.dart';
 import 'package:foster/pages/exercisePlaylistCard.dart';
 
 class Exercise extends StatefulWidget {
+    final List<ExercisePlaylist> playlist;
+
+  const Exercise({this.playlist});
+    
   @override
   _ExerciseState createState() => _ExerciseState();
 
 }
 class _ExerciseState extends State<Exercise> {
+
     
   @override
   Widget build(BuildContext context) {
@@ -24,12 +29,12 @@ class _ExerciseState extends State<Exercise> {
                       ),
             
           child: PageView.builder(
-            itemCount: exercisePlaylist.length,
+            itemCount: widget.playlist.length,
               controller: PageController(viewportFraction: 0.8),
               scrollDirection: Axis.horizontal,
               pageSnapping: true,
               itemBuilder: (context, position){
-            ExercisePlaylist playlist = exercisePlaylist.elementAt(position);
+            ExercisePlaylist playlist = widget.playlist.elementAt(position);
                 return Padding(
                   padding: EdgeInsets.only(left: 30),
                   child: GestureDetector(
