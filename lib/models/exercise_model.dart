@@ -87,7 +87,7 @@ final List<ExerciseList> concentration = [
      ),
      ExerciseList(
       title: 'Paschimottanasana', 
-      imageUrl: 'https://www.artofliving.org/sites/www.artofliving.org/files/wysiwyg_imageupload/Paschimottasana%20-%20Seated%20forward%20bend%20pose_0.jpg',
+      imageUrl: 'https://image.flaticon.com/icons/svg/2647/2647614.svg',
        description: ' Stretches lower back, hamstrings and hips. Massages and tones the abdominal and pelvic organs. Tones the shoulders.', 
        videoUrl: 'https://youtu.be/T8sgVyF4Ux4',
      ),
@@ -98,18 +98,49 @@ final List<ExerciseList> concentration = [
         description: 'This is a backbend and inversion that can be stimulating or restorative. '),
      ExerciseList(
       title: 'Padahastasana', 
-      //should add image
-      imageUrl: 'https://image.freepik.com/free-vector/woman-making-exercises_107173-10086.jpg',
+      imageUrl: 'https://preview.pixlr.com/images/800wm/100/1/1001194950.jpg',
        description: 'Padahastasana or the standing forward bend yoga pose energizes your nervous system. It also improves the blood flow to your brain, improving your memory and brain power', 
        videoUrl: 'https://youtu.be/B3eKTq-nCJo',
      ),
 ];
 
+final List<ExerciseList> stressRelief = [
+    ExerciseList(
+      title: ' Dhanurasana', 
+      imageUrl: 'https://image.flaticon.com/icons/svg/2647/2647483.svg',
+       description: 'Dhanurasana has been named after the shape the body takes while performing it – that of a bow. Dhanu means bow; Asana means posture or pose.',
+       videoUrl: 'https://youtu.be/4P2mYcOGxbU',
+     ),
+    ExerciseList(
+      title: 'Matsyasana', 
+      imageUrl: 'https://image.flaticon.com/icons/svg/2647/2647598.svg',
+       description: 'Stretches the chest and neck. Helps relieve tension in the neck and shoulders. Provides relief from respiratory disorders by encouraging deep breathing', 
+       videoUrl: 'https://youtu.be/i1y0ZGKi-e8',
+     ),
+     ExerciseList(
+      title: 'Adho Mukha Svanasana', 
+      imageUrl: 'https://image.flaticon.com/icons/svg/2647/2647564.svg',
+       description: ' It brings strength throughout the body especially the arms, shoulders, legs, feet. Helps to tone muscles. It increases circulation to the brain. Calms the mind and helps relive headache, insomnia and fatigue.', 
+       videoUrl: 'https://youtu.be/ZMobOh-z-2A',
+     ),
+     ExerciseList(
+      title: 'Sirsasana', 
+      videoUrl:'https://www.youtube.com/watch?v=lm4n2OjRfGg',
+       imageUrl: 'https://cdn3.iconfinder.com/data/icons/yoga-pose-set-1-1/512/headstand-pose-Sirsasana-yoga-exercise-512.png',
+        description: 'Sirsasana induces relaxation and fights stress. Sirsasana also helps in circulating blood to the scalp, and thus helps in preventing hair loss, greying of hair and baldness. It relieves headaches.'),
+     ExerciseList(
+      title: 'Savasana', 
+      imageUrl: 'https://image.flaticon.com/icons/svg/2647/2647530.svg',
+       description: 'This posture leaves you in a state of rejuvenation. It is the perfect way to end a yoga session, particularly if it has been a fast-paced one. It helps reduce blood pressure, anxiety, and insomnia.', 
+       videoUrl: 'https://www.youtube.com/watch?v=oh8z3FHjdW4',
+     ),
+];
 
 List<ExercisePlaylist> exercisePlaylist = [
     ExercisePlaylist(playlistname: 'Strength', exerciseList: strength, imageUrl: 'https://image.freepik.com/free-vector/fitness-people-doing-exercise_18591-36152.jpg'),
     ExercisePlaylist(playlistname: 'Aerobics', exerciseList: aerobics,   imageUrl: 'https://image.freepik.com/free-vector/sport-exercise-training-home-during-covid-19-coronavirus-outbreak_40345-764.jpg'),
-    ExercisePlaylist(playlistname: 'Concentration', exerciseList: concentration, imageUrl: 'https://image.flaticon.com/icons/svg/2548/2548521.svg'),
+    ExercisePlaylist(playlistname: 'Concentration', exerciseList: concentration, imageUrl: 'https://image.freepik.com/free-vector/woman-meditating-nature_113065-182.jpg'),
+    ExercisePlaylist(playlistname: 'Stress Relief', exerciseList: stressRelief, imageUrl: 'https://image.freepik.com/free-vector/hand-drawn-international-day-yoga_52683-38368.jpg'),
   ];
 
   //should add image to concentration
