@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foster/models/exerciseList.dart';
 import 'package:foster/models/exercise_model.dart';
+import 'package:foster/models/yogaList.dart';
 import 'package:foster/pages/exercise.dart';
 
 class YogaExercise extends StatefulWidget {
