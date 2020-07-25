@@ -290,6 +290,9 @@ class InfoPage extends StatelessWidget {
                         ),
               ),
             ),
+           SizedBox(
+            height: 30.0,
+          ),
             
                 ],
               ),
