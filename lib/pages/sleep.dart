@@ -102,7 +102,6 @@ class _SleepState extends State<Sleep> {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 50.0,
-                      //TODO: should add fonts
                     ),
                   ),
                   SizedBox(height: 20.0,),
@@ -217,11 +216,9 @@ class _SleepState extends State<Sleep> {
           children: <Widget>[
                 Text(
                     'Enter: ',
-                    // 'hi',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 50.0,
-                      //TODO: should add fonts
                     ),
                   ),
                   Row(
@@ -234,7 +231,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 Text(
@@ -242,7 +238,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 SizedBox(height: 20.0,),
@@ -255,10 +250,10 @@ class _SleepState extends State<Sleep> {
                                 ),
                                 onPressed: () => startDatePicker(context),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+                                  padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 15.0),
                                   child: Text('Select Start date',
                                     style: TextStyle(
-                                      fontSize: 18.0
+                                      fontSize: 14.0
                                     ),
                                   ),
                                 ),
@@ -272,7 +267,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 Text(
@@ -280,7 +274,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 SizedBox(height: 20.0,),
@@ -293,10 +286,10 @@ class _SleepState extends State<Sleep> {
                                 ),
                                   onPressed: () => endDatePicker(context),
                                   child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+                                  padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 15.0),
                                   child: Text('Select End date',
                                     style: TextStyle(
-                                      fontSize: 18.0
+                                      fontSize: 14.0
                                     ),
                                   ),
                                 ),
@@ -315,13 +308,12 @@ class _SleepState extends State<Sleep> {
                          ),
                          onPressed: () async{
                         submit();
-                        // await createSleepInFirestore();
-                          },
+                        },
                         child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0),
+                                  padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
                                   child: Text('Submit',
                                     style: TextStyle(
-                                      fontSize: 22.0
+                                      fontSize: 20.0
                                     ),
                                   ),
                                 ),
