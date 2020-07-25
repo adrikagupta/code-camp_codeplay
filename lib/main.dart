@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foster/pages/auth.dart';
+import 'package:foster/pages/createMed.dart';
+import 'package:foster/pages/medsTracker.dart';
 
 import 'package:foster/pages/sleep.dart';
 import 'package:foster/pages/splashScreen.dart';
@@ -24,9 +27,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primaryColor: Color.fromRGBO(43, 203, 186, 1.0),
         accentColor: Color.fromRGBO(209, 216, 224, 1.0),
-        fontFamily: 'Yrsa',
+        fontFamily: 'Merienda',
       ),
-      home: SplashScreen()
+      home: Login()
     );
   }
 }
