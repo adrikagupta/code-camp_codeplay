@@ -7,7 +7,6 @@ import 'package:foster/pages/sleepSchedule.dart';
 
 class Sleep extends StatefulWidget {
   final String userId;
-  // final DateTime endDate;
   Sleep({this.userId});
   @override
   _SleepState createState() => _SleepState();
@@ -18,40 +17,13 @@ class _SleepState extends State<Sleep> {
   final sleepRef = Firestore.instance.collection("sleepList");
   DateTime now =  DateTime.now();
   bool clear=false;
-  // List isSubmit = [0,0];
-  // List startDates =[];
-  // List endDates =[];
   DateTime startDate =DateTime.now();
   DateTime endDate =DateTime.now();
   List<SleepModel> sleepSchedule =[]; 
-  // List sleepDuration =[];
-  @override
-  void initState() {
-    super.initState();
-    // sleepSchedule.length=0;
-    // startDates.add(now);
-    // startDates.add(now);
-    // endDates.add(now);
-    // endDates.add(now);
-    // print(startDates.length);
-  }
-
+  
+  
   submit() async {
-    setState((){
-      // startDates.add(startDates[index].add(Duration(days: 1)));
-      // endDates.add(endDates[index].add(Duration(days: 1)));
-      // sleepDuration.add(startDates[index].difference(endDates[index]).inHours);
-      // print(sleepDuration);
-      // print('$index : $startDates ');
-    });
-    //TODO: create in firestore
     await createSleepInFirestore(startDate ,endDate );
-    // setState(() {
-      // isSubmit[index] = 1;
-      // isSubmit.add(0);
-    // });
-
-
   }
   createSleepInFirestore(DateTime startDate, DateTime endDate) async {
     int duration = endDate.difference(startDate).inHours;
@@ -95,7 +67,6 @@ class _SleepState extends State<Sleep> {
 
   List<Widget> sleep(){
     return List.generate(sleepSchedule.length, (index){
-      // int index= indx+1;
     return Container(
               height: MediaQuery.of(context).size.height*0.95,
               decoration: BoxDecoration(
@@ -140,7 +111,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 30.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 SizedBox(height: 20.0,),
@@ -153,7 +123,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
-                                      //TODO: should add fonts
                                     ),
                                 
                                 ),
@@ -162,7 +131,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 Text(
@@ -170,20 +138,9 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 SizedBox(height: 20.0,),
-                              //   isSubmit[index]!=0?Text(''):RaisedButton(
-                              //   textColor: Colors.white,
-                              //   color: Color.fromRGBO(20, 24, 82, 1.0), 
-                              //   shape: new RoundedRectangleBorder(
-                              //     borderRadius: new BorderRadius.circular(30.0),
-                              //     side: BorderSide(color: Color.fromRGBO(133, 89, 136, 1.0))
-                              //   ),
-                              //   onPressed: () => startDatePicker(context),
-                              //   child: Text('Select Start date'),
-                              // ),
                               ],
                             ),
                             Column(
@@ -192,7 +149,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
-                                      //TODO: should add fonts
                                     ),
                                 
                                 ),
@@ -201,7 +157,6 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 Text(
@@ -209,38 +164,13 @@ class _SleepState extends State<Sleep> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
-                                      //TODO: should add fonts
                                     ),
                                 ),
                                 SizedBox(height: 20.0,),
-                                // isSubmit[index]!=0?Text(''):RaisedButton(
-                                //   textColor: Colors.white,
-                                // color: Color.fromRGBO(20, 24, 82, 1.0), 
-                                // shape: new RoundedRectangleBorder(
-                                //   borderRadius: new BorderRadius.circular(30.0),
-                                //   side: BorderSide(color: Color.fromRGBO(133, 89, 136, 1.0))
-                                // ),
-                                //   onPressed: () => endDatePicker(context),
-                                //   child: Text('Select End date'),
-                                // ),
                               ],
                             ),
                           ],
                         ),
-                        // Text(sleepSchedule[index].duration.toString())
-                      //  isSubmit[index]!=0?Text(''):RaisedButton(
-                      //    textColor: Color.fromRGBO(20, 24, 82, 1.0),
-                      //    color:  Colors.white, 
-                      //    shape: new RoundedRectangleBorder(
-                      //      borderRadius: new BorderRadius.circular(30.0),
-                      //      side: BorderSide(color:Color.fromRGBO(20, 24, 82, 1.0))
-                      //    ),
-                      //    onPressed: () async{
-                      //   submit(index);
-                      //   // await createSleepInFirestore();
-                      //     },
-                      //   child: Text('Submit'),
-                      // )
           ],
     ),
                 ],
@@ -255,22 +185,9 @@ class _SleepState extends State<Sleep> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        // Column(
-        //   children: sleep(),
-          
-        //     ),
-      
       Container(
               height: MediaQuery.of(context).size.height*0.95,
               decoration: BoxDecoration(
-                // image: DecorationImage(
-                //   image: NetworkImage(
-                //     'https://image.freepik.com/free-vector/mountains-landscape-background_23-2148267129.jpg',
-                //     // 'https://image.freepik.com/free-vector/full-moon-night-ocean-cartoon-illustration_33099-2308.jpg',
-                //     // scale: 1.0
-                //     ),
-                //     // fit: BoxFit.fitHeight,
-                //   ),
                   color: Colors.purple,
                   gradient: new LinearGradient(
                     colors: [
@@ -427,7 +344,6 @@ class _SleepState extends State<Sleep> {
             print(sleepSchedule.length);
           return Column(
             children :
-            //  [Text('hi')],
             sleep(),
           );
         },
