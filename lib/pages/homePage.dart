@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() { 
     super.initState();
-    pageController = PageController();
+    pageController = PageController(initialPage: 2);
   }
 
   @override
@@ -39,18 +39,20 @@ class _HomePageState extends State<HomePage> {
   }
 
   onTap(int _selectedIndex){
-    pageController.animateToPage(_selectedIndex, duration: Duration(milliseconds: 40), curve:Curves.easeInOut);
+    pageController.animateToPage(_selectedIndex, duration: Duration(milliseconds: 40), curve:Curves.ease);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
+        height: 60,
+        index:2,
         color: Theme.of(context).primaryColor,
         backgroundColor: Colors.white10,
         items: <Widget>[
           Icon(MyFlutterApp.bed, size: 23,color: Colors.white,),
-          Icon(MyFlutterApp.fitness_center, size: 23,color: Colors.white,),
+          Icon(MyFlutterApp.fitness_center, size: 26,color: Colors.white,),
           Icon(Icons.home, size: 30,color: Colors.white,),
           Icon(MyFlutterApp.tasks, size: 23,color: Colors.white,),
           Icon(MyFlutterApp.hand_holding_medical, size: 23,color: Colors.white,),

@@ -33,7 +33,7 @@ exports.onTaskCreation = functions.firestore
 
     var diff = totalMS-current;
  
-
+    if(diff>0){
 
     setTimeout(()=>{
         console.log("Timeout enters");
@@ -66,6 +66,7 @@ exports.onTaskCreation = functions.firestore
     
         }
     },diff)
+}
 }
 
 });

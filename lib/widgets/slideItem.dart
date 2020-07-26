@@ -23,12 +23,12 @@ class SlideItem extends StatelessWidget {
             color: Colors.grey.shade100,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.075),
+                color: Colors.black.withOpacity(0.05),
                 offset: Offset(10, 10),
                 blurRadius: 10,
               ),
               BoxShadow(
-                color: Colors.white,
+                color: Colors.grey.withOpacity(0.06),
                 offset: Offset(-10, -10),
                 blurRadius: 10,
               ),

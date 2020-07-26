@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
     if(!doc.exists){
       await User().addDocument(userEntered);
     }
-    print("will enter pus Notificatio");
+   
     configurePushNotifications(user.uid);
     return user.uid;
     // final GoogleSignInAccount currentUser =  googleSignIn.currentUser;
@@ -97,8 +97,7 @@ class _LoginState extends State<Login> {
                 context: context,
                 builder: (context) => AlertDialog(
                         content: ListTile(
-                        // title: Text(message['data'][]),
-                        title: Text(message['notification']['body'], style: TextStyle(fontSize: 18, fontFamily: 'Merienda', color: Colors.black87),),
+                        title: Text(message['notification']['body'], style: TextStyle(fontSize: 18,letterSpacing: 1.1, fontFamily: 'Merienda', color: Colors.black87),),
                         ),
                         actions: <Widget>[
                         FlatButton(
@@ -196,7 +195,6 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       appBar: AppBar(
         title: Text('Login',
           style: TextStyle(
@@ -210,6 +208,16 @@ class _LoginState extends State<Login> {
       body: Container(
         height: MediaQuery.of(context).size.height*0.9,
         decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors:[
+              Colors.pink[100],
+              Colors.yellow[100],
+              Colors.yellow[200],
+              Colors.pink[100]
+            ],
+             ),
           image: DecorationImage(
             image: NetworkImage('https://image.freepik.com/free-vector/colorful-background-watercolor-design_23-2148481367.jpg'),
             fit: BoxFit.cover,

@@ -14,14 +14,8 @@ class MedsTracker extends StatefulWidget {
 
 class _MedsTrackerState extends State<MedsTracker> {
 
-  
-  // bool medtaken;
-
   onMedTaken(Med med)async{
-  //  setState(() {
-  //   this.medtaken = !medtaken;
-  //  });
-   
+
      await medsListRef.document(widget.currentUserId).collection('meds').document(med.medId).updateData({
      "medTaken": true,
    });
@@ -115,7 +109,7 @@ class _MedsTrackerState extends State<MedsTracker> {
                   ),
                  
                   Container(
-                    height: orientation== Orientation.portrait? height*0.62: height*0.43,
+                    height: orientation== Orientation.portrait? height*0.646: height*0.48,
                     margin: orientation==Orientation.portrait?EdgeInsets.only(top:40):EdgeInsets.only(top:5),
                     child:StreamBuilder(
                       stream: medsListRef.document(widget.currentUserId).collection('meds').where("medStartDate",isEqualTo:formattedNowdate).snapshots(),

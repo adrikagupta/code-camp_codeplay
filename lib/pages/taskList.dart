@@ -20,7 +20,7 @@ class _TaskListState extends State<TaskList> {
       showDialog(
         context: context,
         builder: (_) => new AlertDialog(
-              title:Text("Congratulations on completing a task! You are a winner. There are always new, grander challenges to confront, and a true winner will embrace each one.") ,
+              title:Text("Congratulations on completing a task! You are a winner! There are always new, grander challenges to confront, and a true winner will embrace each one.") ,
               titleTextStyle:  TextStyle(fontSize: 16,fontFamily: 'Merienda',color: Colors.black),
               content:Container(
                 height: double.infinity,
@@ -118,9 +118,9 @@ class _TaskListState extends State<TaskList> {
                            
         Container(
           margin: orientation==Orientation.portrait?EdgeInsets.only(top:40):EdgeInsets.only(top:5),
-          height:orientation== Orientation.portrait? height*0.625: height*0.5,
+          height:orientation== Orientation.portrait? height*0.646: height*0.545,
           child: StreamBuilder(
-            stream: tasksListRef.document(widget.currentUserId).collection('tasks').orderBy("orderDate").snapshots(),
+            stream: tasksListRef.document(widget.currentUserId).collection('tasks').orderBy("orderDate").orderBy("taskTime").snapshots(),
             builder: (context,snapshot){
               if(!snapshot.hasData){
                 return Center(child: CircularProgressIndicator());
