@@ -47,7 +47,7 @@ class SlideItem extends StatelessWidget {
           slideList[index].title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 22,
+            fontSize: 20,
             color: Color.fromRGBO(56, 173, 169,1.0),
           ),
         ),

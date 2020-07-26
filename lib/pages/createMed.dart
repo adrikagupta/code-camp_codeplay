@@ -1,18 +1,13 @@
 import 'package:button_picker/button_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
-// import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
-import 'package:foster/widgets/timePeriod.dart';
 import 'package:intl/intl.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:uuid/uuid.dart';
 
-//dosage and time periods should be equal
 
 final medsListRef = Firestore.instance.collection('medsList');
 
@@ -39,6 +34,7 @@ class _CreateMedState extends State<CreateMed> {
   var medInterval;
   var medDuration;
   bool medTaken = false;
+  var ind = 0;
 
  submit()async{
    if(medDosage == times.length && medInterval!=0 && medDuration!=0 && medStartDate!=null && medNameController.text.isNotEmpty){
@@ -164,9 +160,7 @@ class _CreateMedState extends State<CreateMed> {
               new FlatButton(  
                 child: new Text('OK',style: TextStyle(color: Colors.red[300],fontSize: 15),),  
                 onPressed: () {  
-                  
                   Navigator.of(context).pop(); 
-                  
                 },  
               )  
             ],  
@@ -223,7 +217,6 @@ class _CreateMedState extends State<CreateMed> {
        var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     var orientation = MediaQuery.of(context).orientation;
-    
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -334,9 +327,54 @@ class _CreateMedState extends State<CreateMed> {
                     SizedBox(height: orientation==Orientation.portrait? height*0.015:height*0.035),
                     Container(
                       height:orientation==Orientation.portrait? height*0.06:height*0.1,
-                      child:ListView(
+                      child:ListView.builder(
+                        itemCount: times.length,
                         scrollDirection: Axis.horizontal,
-                        children: times.map((e) => TimePeriod(e)).toList(),
+                        // children: times.map((e){
+                        //   return TimePeriod(e,times,ind++);
+                        //   }).toList(),
+                        itemBuilder: (context,index){
+                          return  GestureDetector(
+                           onLongPress: (){
+                           showDialog(
+                            context:context,
+                            child: AlertDialog(
+                            title: Text("Remove?",textAlign: TextAlign.center),
+                            actions: <Widget>[
+                                FlatButton(
+                                child: Text('Yes',style: TextStyle(color: Colors.red[300],fontSize: 18),),  
+                                onPressed: () {  
+                                  setState(() {
+                                    times.removeAt(index);
+                                    });
+                                  Navigator.pop(context);
+                                },
+                                ),
+                                FlatButton(
+                                child: Text('No',style: TextStyle(color: Colors.red[300],fontSize: 18),),  
+                                onPressed: () {  
+                                  Navigator.pop(context);
+                                },
+                                )
+                                ],
+                                ),
+                               );
+                               },
+                               child: Container (
+                               margin: EdgeInsets.only(right:10),
+                               padding: EdgeInsets.all(10),
+
+                               width:width*0.25,
+                               decoration: BoxDecoration(
+                                 color: Colors.white,
+                                borderRadius: BorderRadius.circular(50)
+                               ),
+                               child:Center(
+                                 child:Text(times[index])
+                               )
+                             ),
+                           );
+                        },
                       ),
                     ),
                     SizedBox(height: orientation==Orientation.portrait? height*0.03:height*0.07),
