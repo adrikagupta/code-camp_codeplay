@@ -1,0 +1,197 @@
+
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:just_audio/just_audio.dart';
+// import 'package:rxdart/rxdart.dart';
+
+
+// class Lullaby extends StatefulWidget {
+//   @override
+//   _LullabyState createState() => _LullabyState();
+// }
+
+// class _LullabyState extends State<Lullaby> {
+//  final _volumeSubject = BehaviorSubject.seeded(1.0);
+//   final _speedSubject = BehaviorSubject.seeded(1.0);
+//   AudioPlayer _player;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     // AudioPlayer.setIosCategory(IosCategory.playback);
+//     _player = AudioPlayer();
+//     _player
+//         .setUrl(
+//             "https://static1.squarespace.com/static/561fe6c6e4b0b8c55edc9146/5699229505caa7a89cf149ad/56992e2bb20943af6e227c8e/1452879638822/2starrysky25.mp3")
+//         .catchError((error) {
+//       // catch audio error ex: 404 url, wrong url ...
+//       print(error);
+//     });
+//   }
+
+//   @override
+//   void dispose() {
+//     _player.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: const Text('Audio Player Demo'),
+//         ),
+//         body: Center(
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Text("Science Friday"),
+//               Text("Science Friday and WNYC Studios"),
+//               StreamBuilder<FullAudioPlaybackState>(
+//                 stream: _player.fullPlaybackStateStream,
+//                 builder: (context, snapshot) {
+//                   final fullState = snapshot.data;
+//                   final state = fullState?.state;
+//                   print(state);
+//                   final buffering = fullState?.buffering;
+//                   return Row(
+//                     mainAxisSize: MainAxisSize.min,
+//                     children: [
+//                       if (state == AudioPlaybackState.connecting ||
+//                           buffering == true)
+//                         Container(
+//                           margin: EdgeInsets.all(8.0),
+//                           width: 64.0,
+//                           height: 64.0,
+//                           child: CircularProgressIndicator(),
+//                         )
+//                       else if (state == AudioPlaybackState.playing)
+//                         IconButton(
+//                           icon: Icon(Icons.pause),
+//                           iconSize: 64.0,
+//                           onPressed: _player.pause,
+//                         )
+//                       else
+//                         IconButton(
+//                           icon: Icon(Icons.play_arrow),
+//                           iconSize: 64.0,
+//                           onPressed: _player.play,
+//                         ),
+//                       IconButton(
+//                         icon: Icon(Icons.stop),
+//                         iconSize: 64.0,
+//                         onPressed: state == AudioPlaybackState.stopped ||
+//                                 state == AudioPlaybackState.none
+//                             ? null
+//                             : _player.stop,
+//                       ),
+//                     ],
+//                   );
+//                 },
+//               ),
+//               Text("Track position"),
+//               StreamBuilder<Duration>(
+//                 stream: _player.durationStream,
+//                 builder: (context, snapshot) {
+//                   final duration = snapshot.data ?? Duration.zero;
+//                   return StreamBuilder<Duration>(
+//                     stream: _player.getPositionStream(),
+//                     builder: (context, snapshot) {
+//                       var position = snapshot.data ?? Duration.zero;
+//                       if (position > duration) {
+//                         position = duration;
+//                       }
+//                       return SeekBar(
+//                         duration: duration,
+//                         position: position,
+//                         onChangeEnd: (newPosition) {
+//                           _player.seek(newPosition);
+//                         },
+//                       );
+//                     },
+//                   );
+//                 },
+//               ),
+//               Text("Volume"),
+//               StreamBuilder<double>(
+//                 stream: _volumeSubject.stream,
+//                 builder: (context, snapshot) => Slider(
+//                   divisions: 20,
+//                   min: 0.0,
+//                   max: 2.0,
+//                   value: snapshot.data ?? 1.0,
+//                   onChanged: (value) {
+//                     _volumeSubject.add(value);
+//                     _player.setVolume(value);
+//                   },
+//                 ),
+//               ),
+//               Text("Speed"),
+//               StreamBuilder<double>(
+//                 stream: _speedSubject.stream,
+//                 builder: (context, snapshot) => Slider(
+//                   divisions: 10,
+//                   min: 0.5,
+//                   max: 1.5,
+//                   value: snapshot.data ?? 1.0,
+//                   onChanged: (value) {
+//                     _speedSubject.add(value);
+//                     _player.setSpeed(value);
+//                   },
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class SeekBar extends StatefulWidget {
+//   final Duration duration;
+//   final Duration position;
+//   final ValueChanged<Duration> onChanged;
+//   final ValueChanged<Duration> onChangeEnd;
+
+//   SeekBar({
+//     @required this.duration,
+//     @required this.position,
+//     this.onChanged,
+//     this.onChangeEnd,
+//   });
+
+//   @override
+//   _SeekBarState createState() => _SeekBarState();
+// }
+
+// class _SeekBarState extends State<SeekBar> {
+//   double _dragValue;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Slider(
+//       min: 0.0,
+//       max: widget.duration.inMilliseconds.toDouble(),
+//       value: _dragValue ?? widget.position.inMilliseconds.toDouble(),
+//       onChanged: (value) {
+//         setState(() {
+//           _dragValue = value;
+//         });
+//         if (widget.onChanged != null) {
+//           widget.onChanged(Duration(milliseconds: value.round()));
+//         }
+//       },
+//       onChangeEnd: (value) {
+//         _dragValue = null;
+//         if (widget.onChangeEnd != null) {
+//           widget.onChangeEnd(Duration(milliseconds: value.round()));
+//         }
+//       },
+//     );
+//   }
+// }
