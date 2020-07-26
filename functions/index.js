@@ -91,23 +91,14 @@ exports.onMedCreation = functions.firestore
     var current = Date.parse(nowIso);
     
 
-    var duration = medCreated.medDuration;
+    duration = medCreated.medDuration;
     var startDate = medCreated.medStartDate;
 
     while(duration!=0){
         console.log('Duration',duration);
     for(let i=0;i< medCreated.medTimePeriods.length;i++){
         console.log('I is ',i);
-
-        var date = new Date(startDate+' '+ medCreated.medTimePeriods[i]);
-        var dateIso = date.toISOString();
-        var totalMS = Date.parse(dateIso) - ( 5.5 * 60 * 60 * 1000 );
-    
-        let diff = totalMS - current;
-        console.log("current :" ,current);
-        console.log("totalms:" ,totalMS);
-        console.log("Diff :" ,diff);
-        functionSet(i,diff);
+        functionSet(i);
     }
    
     duration--;
@@ -123,9 +114,16 @@ exports.onMedCreation = functions.firestore
 
     }
 
-    function functionSet(i,diff){
+    function functionSet(i){
         
+        var date = new Date(startDate+' '+ medCreated.medTimePeriods[i]);
+        var dateIso = date.toISOString();
+        var totalMS = Date.parse(dateIso) - ( 5.5 * 60 * 60 * 1000 );
     
+        let diff = totalMS - current;
+        console.log("current :" ,current);
+        console.log("totalms:" ,totalMS);
+        console.log("Diff :" ,diff);
        
          setTimeout(()=>{
             
