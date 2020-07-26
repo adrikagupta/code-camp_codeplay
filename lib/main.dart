@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foster/pages/auth.dart';
+import 'package:foster/pages/splashScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
         accentColor: Color.fromRGBO(209, 216, 224, 1.0),
         fontFamily: 'Merienda',
       ),
-      home: Login()
+      home: SplashScreen()
+
+
     );
   }
 }

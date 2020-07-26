@@ -15,22 +15,22 @@ class MedsTracker extends StatefulWidget {
 class _MedsTrackerState extends State<MedsTracker> {
 
   
-  bool medtaken;
+  // bool medtaken;
 
   onMedTaken(Med med)async{
-   setState(() {
-    this.medtaken = !medtaken;
-   });
+  //  setState(() {
+  //   this.medtaken = !medtaken;
+  //  });
    
      await medsListRef.document(widget.currentUserId).collection('meds').document(med.medId).updateData({
-     "medTaken":medtaken,
+     "medTaken": true,
    });
   
     var dosage = med.medDosage - 1;
     if(dosage!=0){
-      print(medtaken);
+     print(med.medTaken);
      await medsListRef.document(widget.currentUserId).collection('meds').document(med.medId).updateData({
-     "medTaken": !medtaken,
+     "medTaken": false,
      "medDosage":dosage,
    });
     
@@ -129,7 +129,7 @@ class _MedsTrackerState extends State<MedsTracker> {
                           itemBuilder: (context,index){
                             DocumentSnapshot doc = snapshot.data.documents[index];
                             Med med = Med.fromDocument(doc);
-                            medtaken = med.medTaken;
+                            // medtaken = med.medTaken;
                             var dex = med.medTimePeriods.length - med.medDosage;
                             
                             return Container(
@@ -192,7 +192,7 @@ class _MedsTrackerState extends State<MedsTracker> {
                                  ),
                                  SizedBox(width:10),
                                  IconButton(
-                                   icon: medtaken?Icon(MyFlutterApp.thumbs_up_alt, size: 33,color: Colors.orange[900],):Icon(MyFlutterApp.thumbs_up, size: 33,color: Colors.orange[900],),
+                                   icon: med.medTaken?Icon(MyFlutterApp.thumbs_up_alt, size: 33,color: Colors.orange[900],):Icon(MyFlutterApp.thumbs_up, size: 33,color: Colors.orange[900],),
                                    onPressed: ()=> onMedTaken(med)
                                    )
                                ],

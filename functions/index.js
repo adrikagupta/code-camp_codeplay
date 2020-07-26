@@ -84,7 +84,7 @@ exports.onMedCreation = functions.firestore
     const androidNotificationToken = doc.data().androidNotificationToken;
     const medCreated = snapshot.data();
 
-    if(medCreated.medTaken == false){
+    // if(medCreated.medTaken == false){
 
     var now = new Date();
     var nowIso = now.toISOString();
@@ -93,38 +93,56 @@ exports.onMedCreation = functions.firestore
 
     duration = medCreated.medDuration;
     var startDate = medCreated.medStartDate;
+    var len = medCreated.medTimePeriods.length * medCreated.medDuration;
+  
+    console.log('Duration',duration);
+    var diff = [];
+    var count =0;
+    var timeDiff = 0;
+    var timeValue;
 
-    while(duration!=0){
-        console.log('Duration',duration);
-    for(let i=0;i< medCreated.medTimePeriods.length;i++){
-        console.log('I is ',i);
-        functionSet(i);
-    }
-   
-    duration--;
-   
-    var new_date = moment(startDate, "YYYY-MM-DD").add(medCreated.medInterval, 'days');
-    var day = new_date.format('DD');
-    var month = new_date.format('MM');
-    var year = new_date.format('YYYY');
-    startDate = year + '-' + month + '-' + day; 
-    console.log('Start date ',startDate);   
+    for(let i=0;i<len;i++){
 
-    }
+        if(count== medCreated.medTimePeriods.length){
+            var new_date = moment(startDate, "YYYY-MM-DD").add(medCreated.medInterval, 'days');
+            var day = new_date.format('DD');
+            var month = new_date.format('MM');
+            var year = new_date.format('YYYY');
+            startDate = year + '-' + month + '-' + day; 
+            console.log('Start date ',startDate);  
+            count = 0; 
+        }
 
-    }
-
-    function functionSet(i){
-        
-        var date = new Date(startDate+' '+ medCreated.medTimePeriods[i]);
+        var date = new Date(startDate+' '+ medCreated.medTimePeriods[count]);
         var dateIso = date.toISOString();
         var totalMS = Date.parse(dateIso) - ( 5.5 * 60 * 60 * 1000 );
-    
-        let diff = totalMS - current;
+        timeDiff = totalMS - current;
+        if(i==0){
+            diff.push(timeDiff);
+        }
+        else{
+            timeValue = timeDiff + diff[i-1];
+            diff.push(timeValue);
+        }
+
         console.log("current :" ,current);
         console.log("totalms:" ,totalMS);
-        console.log("Diff :" ,diff);
-       
+        console.log(" i Diff :" ,i,diff);
+
+        current = totalMS;
+        count++;
+        
+
+    }    
+        
+    for(let i=0;i<len;i++){
+        functionSet(i);
+    }
+
+    // }
+
+    function functionSet(i){      
+        console.log('I is ',i);
          setTimeout(()=>{
             
             if(androidNotificationToken){
@@ -155,10 +173,7 @@ exports.onMedCreation = functions.firestore
                 })
         
             }
-        },diff)
-    
-        current = totalMS;
-    
+        },diff[i])
         }
     
 
