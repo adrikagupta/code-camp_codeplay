@@ -13,19 +13,22 @@ class _YogaExerciseState extends State<YogaExercise> {
   @override
   Widget build(BuildContext context) {
     
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    var height;
+    var width;
     var orientation = MediaQuery.of(context).orientation;
+    height = orientation==Orientation.landscape? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
+    width = orientation==Orientation.portrait? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
     return SafeArea(
       child: Container(
-            height: MediaQuery.of(context).size.height*0.9,
+            height:height*0.9,
+              // height: 100.0,
               decoration: BoxDecoration(    image: DecorationImage(
             image: AssetImage('assets/images/breathe.jpg'),
             fit: BoxFit.cover
                    )
                       ),
 
-        child: orientation==Orientation.landscape?Row:Column
+        child:orientation==Orientation.landscape? Row :Column
         (
           
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,9 +41,9 @@ class _YogaExerciseState extends State<YogaExercise> {
                   children: <Widget>[
                     
                     Container(
-                    margin: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.1),
-                     width: MediaQuery.of(context).size.width*0.8,
-                      height: MediaQuery.of(context).size.height*0.23,
+                    margin: EdgeInsets.symmetric(horizontal:width*0.1),
+                     width: width*0.8,
+                      height: height*0.23,
                       decoration: BoxDecoration(
                         color: Color.fromRGBO(234, 134, 133,1.0),
                     boxShadow: [
@@ -55,8 +58,8 @@ class _YogaExerciseState extends State<YogaExercise> {
                       ),
                       ),
                     Positioned(
-                      left: MediaQuery.of(context).size.width*0.2,
-                      top: MediaQuery.of(context).size.height*0.06,
+                      left:width*0.2,
+                      top:height*0.06,
                       child: Text(
                         'Yoga',
                         style: TextStyle(
@@ -75,13 +78,13 @@ class _YogaExerciseState extends State<YogaExercise> {
                       ),
                     ),
                     Positioned(
-                left: MediaQuery.of(context).size.width*0.5,
-                 top: MediaQuery.of(context).size.height*0.0,
+                left: width*0.5,
+                 top: height*0.0,
                 child: SvgPicture.network(
                   'https://image.flaticon.com/icons/svg/2647/2647625.svg',
                   fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width*0.45,
-                  height: MediaQuery.of(context).size.height*0.23,
+                  width: width*0.45,
+                  height: height*0.23,
                 ),
             )
                   ],
@@ -92,9 +95,9 @@ class _YogaExerciseState extends State<YogaExercise> {
                       child: Stack(
                   children: <Widget>[
                     Container(
-                    margin: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.1),
-                     width: MediaQuery.of(context).size.width*0.8,
-                      height: MediaQuery.of(context).size.height*0.23,
+                    margin: EdgeInsets.symmetric(horizontal:width*0.1),
+                     width: width*0.8,
+                      height: height*0.23,
                       decoration: BoxDecoration(
                         color: Color.fromRGBO(248, 194, 145,1.0),
                     
@@ -110,8 +113,8 @@ class _YogaExerciseState extends State<YogaExercise> {
                       ),
                       ),
                     Positioned(
-                      left: MediaQuery.of(context).size.width*0.2,
-                      top: MediaQuery.of(context).size.height*0.06,
+                      left:  width*0.2,
+                      top:  height*0.06,
                       child: Text(
                         'Workout',
                         style: TextStyle(
@@ -130,13 +133,13 @@ class _YogaExerciseState extends State<YogaExercise> {
                       ),
                     ),
                     Positioned(
-                left: MediaQuery.of(context).size.width*0.55,
-                 top: MediaQuery.of(context).size.height*0.0,
+                left: width*0.55,
+                 top: height*0.0,
                 child: SvgPicture.network(
                   'https://image.flaticon.com/icons/svg/2548/2548537.svg',
                   fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width*0.4,
-                  height: MediaQuery.of(context).size.height*0.23,
+                  width:  width*0.4,
+                  height:  height*0.23,
                 ),
             )
                   ],
