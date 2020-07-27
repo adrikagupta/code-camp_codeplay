@@ -9,8 +9,6 @@ class InfoPage extends StatelessWidget {
 
   logout(BuildContext context) async {
     await googleSignIn.signOut();
-    print('logged out');
-    // Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
   @override
@@ -20,18 +18,25 @@ class InfoPage extends StatelessWidget {
                 child: Column(
                  crossAxisAlignment: CrossAxisAlignment.end,
                  children: <Widget>[
-                   RaisedButton.icon(
-                       color: Theme.of(context).primaryColor,
-                      icon: Icon(Icons.exit_to_app,
-                        color: Colors.white,
+                  PopupMenuButton(
+                    icon: Icon(Icons.more_horiz,size:30,color: Theme.of(context).primaryColor,),
+                    itemBuilder: (context) => [
+                    PopupMenuItem(
+                    child: FlatButton.icon(
+                    label:Text("Logout",style:TextStyle(fontSize:16,color: Colors.black87)),
+                    icon:Icon(Icons.exit_to_app,size:20),
+                    onPressed: ()=>logout(context)
+                  ),                      
+                ),
+                    PopupMenuItem(
+                      child: FlatButton.icon(
+                      label:Text("Cancel",style:TextStyle(fontSize:16,color: Colors.black87)),
+                      icon:Icon(Icons.cancel,size:20),
+                                          onPressed: ()=>Navigator.pop(context)    
                       ),
-                      onPressed: ()=> logout(context),
-                       label: Text('Logout',
-                       style: TextStyle(
-                         color: Colors.white,
-                       )
-                       ),
-          ),
+                    ),
+                    ],
+                    ),
           
           Container(
             height:350,
@@ -56,10 +61,10 @@ class InfoPage extends StatelessWidget {
                   ),
                 ),
            ),
-          SizedBox(height:10),
+          SizedBox(height:5),
           Padding(
             padding: const EdgeInsets.only(left:20,right:20),
-            child: Text('Not every person with ADHD has the same personality traits, but there are some personal strengths that can make having the condition an advantage, not a drawback.',
+            child: Text('Be proud of your attention deficit hyperactivity disorder and all the out-of-the-box thinking, humor, drive, and passion it brings! Read on for some of the best traits of people with ADHD.',
                   // textAlign: TextAlign.center,
                   style: TextStyle(
                         fontSize: 18.0,
