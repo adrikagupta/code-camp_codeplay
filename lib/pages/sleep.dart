@@ -195,7 +195,7 @@ class _SleepState extends State<Sleep> {
     
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    var orientation = MediaQuery.of(context).orientation;
+   var orientation = MediaQuery.of(context).orientation;
     return Column(
         children: <Widget>[
           Container(
@@ -220,11 +220,14 @@ class _SleepState extends State<Sleep> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    
-                       SvgPicture.network(
+                   
+                       Padding(
+                         padding: const EdgeInsets.only(left:10),
+                         child: SvgPicture.network(
                       'https://www.svgrepo.com/show/206383/moon.svg',
-                      height: MediaQuery.of(context).size.height*0.2,
+                      height:orientation == Orientation.portrait?  MediaQuery.of(context).size.height*0.2: height*0.35,
                     ),
+                       ),
                     
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

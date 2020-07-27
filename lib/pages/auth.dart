@@ -22,23 +22,6 @@ class _LoginState extends State<Login> {
    User userEntered; 
    FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   
-  // createAccountInFirestore() async {
-  //   final GoogleSignInAccount user = googleSignIn.currentUser;
-  //   final DocumentSnapshot doc = await usersRef.document(user.id).get();
-  //   User userEntered = User(id: user.id, name: user.displayName, email: user.email, photoUrl: user.photoUrl);
-  //   if(!doc.exists){
-  //     await User().addDocument(userEntered);
-  //   }
-
-  // }
-  
-  // login() async {
-  //   await googleSignIn.signIn();
-  //   print('signed In');
-  //   await createAccountInFirestore();
-  //   Navigator.push(context, MaterialPageRoute(builder: (context) => SleepSchedule()));
-  // }
-
   Future<String> signInWithGoogle() async {
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     print("Sign in Passed");
@@ -61,18 +44,6 @@ class _LoginState extends State<Login> {
    
     configurePushNotifications(user.uid);
     return user.uid;
-    // final GoogleSignInAccount currentUser =  googleSignIn.currentUser;
-    // assert(user.uid == currentUser.id);
-    // print('signInWithGoogle succeeded: $currentUser');
-
-  // createAccountInFirestore() async {
-  //   final GoogleSignInAccount user = googleSignIn.currentUser;
-  //   final DocumentSnapshot doc = await usersRef.document(user.id).get();
-  //   userEntered = User(id: user.id, name: user.displayName, email: user.email, photoUrl: user.photoUrl);
-  //   if(!doc.exists){
-  //     await User().addDocument(userEntered);
-  //   }
-    
 
   }
    configurePushNotifications(String id){
@@ -161,46 +132,20 @@ class _LoginState extends State<Login> {
     ));
     _firebaseMessaging.onIosSettingsRegistered.listen((event) {print("Setting registered:$event");});
   }
-  
-  // login() async {
-  //   await googleSignIn.signIn();
-  //   print('signed In');
-  //   await createAccountInFirestore();
-  //   print(userEntered.id);
-  //   print(userEntered.email);
-  //   print("in auth");
-  //   Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(currentUser: userEntered)));
-  // }
 
-
-  @override
-  void initState() {
-    super.initState();
-//     googleSignIn.onCurrentUserChanged.listen((account) {
-//       if(account!=null){
-//         print('User Signed in $account');
-//         print(account.displayName);
-//       }  
-//     });
-//   }
-    // googleSignIn.signInSilently(suppressErrors: false).then((account){
-    //   if(account!=null){
-    //     print('User Signed in $account');
-    //     print(account.displayName);
-    //         //  Navigator.push(context, MaterialPageRoute(builder: (context) => SleepSchedule(account.id)));
-    //   }
-    // });
-  }
 
   @override
   Widget build(BuildContext context) {
+     var orientation = MediaQuery.of(context).orientation;
+    var height = orientation==Orientation.landscape? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
+    var width = orientation==Orientation.portrait? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text('Login',
           style: TextStyle(
               // fontWeight: FontWeight.w600,
               fontSize: 22.0,
-              // color: Colors.lightGreen[200],
+              color: Colors.white,
           ),),
         centerTitle: true,
         backgroundColor: Color.fromRGBO(253, 114, 114,0.5) ,
@@ -229,8 +174,8 @@ class _LoginState extends State<Login> {
               alignment: Alignment.center,
               children: <Widget>[
                 Container(
-            width: MediaQuery.of(context).size.width*0.7,
-            height: MediaQuery.of(context).size.height*0.3,
+            width: orientation==Orientation.portrait? width*0.7:width*0.8,
+            height: orientation==Orientation.portrait?height*0.3:height*0.3,
             decoration: BoxDecoration(
               color: Color.fromRGBO(253, 114, 114,0.5),
               borderRadius: BorderRadius.all(
@@ -243,13 +188,13 @@ class _LoginState extends State<Login> {
                    children: <Widget>[
                      SvgPicture.asset(
                       'assets/images/icons8-gmail.svg',
-                      height: MediaQuery.of(context).size.height*0.15,
+                      height:height*0.15,
                 ),
                 Text('Google Sign in',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 28.0,
-                    color: Colors.lightGreen[200],
+                    color: Color.fromRGBO(217, 250, 187,1)
                   ),
                 ),
                    ],

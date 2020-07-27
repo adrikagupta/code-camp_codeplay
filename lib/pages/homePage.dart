@@ -1,10 +1,10 @@
-import 'package:audio_service/audio_service.dart';
+// import 'package:audio_service/audio_service.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:foster/pages/exerciseNyoga.dart';
 import 'package:foster/pages/infoPage.dart';
-import 'package:foster/pages/lullaby.dart';
-import 'package:foster/pages/musicNotification.dart';
+// import 'package:foster/pages/lullaby.dart';
+// import 'package:foster/pages/musicNotification.dart';
 import 'package:foster/pages/medsTracker.dart';
 import 'package:foster/pages/sleepSchedule.dart';
 import 'package:foster/pages/taskList.dart';

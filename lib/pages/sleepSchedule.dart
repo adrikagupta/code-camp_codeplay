@@ -41,14 +41,14 @@ class _SleepScheduleState extends State<SleepSchedule> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        height: height*0.1,
-                        width: height*0.1,
+                        height: orientation == Orientation.portrait? height*0.07 : height*0.15,
+                        width: orientation == Orientation.portrait? height*0.07:height*0.15,
                         child: FloatingActionButton(
-                          backgroundColor: Colors.white,
+                          backgroundColor: Colors.white.withOpacity(0.95),
                         // color: ,
                 child:  SvgPicture.network(
                       'https://www.svgrepo.com/show/243560/musical-note-music.svg',
-                      height: height*0.05,
+                      height: orientation == Orientation.portrait? height*0.03:height*0.06,
                 ),
                                     onPressed: (){
                                 print('lullaby');

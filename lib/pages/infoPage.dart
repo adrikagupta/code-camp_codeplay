@@ -20,30 +20,39 @@ class InfoPage extends StatelessWidget {
     return SafeArea(
            child: SingleChildScrollView(
                 child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.end,
+                 crossAxisAlignment: CrossAxisAlignment.center,
                  children: <Widget>[
 
-                  PopupMenuButton(
-                    icon: Icon(Icons.more_horiz,size:30,color: Theme.of(context).primaryColor,),
-                    itemBuilder: (context) => [
-                    PopupMenuItem(
-                    child: FlatButton.icon(
-                    label:Text("Logout",style:TextStyle(fontSize:16,color: Colors.black87)),
-                    icon:Icon(Icons.exit_to_app,size:20),
-                    onPressed: ()=>logout(context)
-                  ),                      
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right:5),
+                        child: PopupMenuButton(
+                          icon: Icon(Icons.more_horiz,size:30,color: Theme.of(context).primaryColor,),
+                          itemBuilder: (context) => [
+                          PopupMenuItem(
+                          child: FlatButton.icon(
+                          label:Text("Logout",style:TextStyle(fontSize:16,color: Colors.black87)),
+                          icon:Icon(Icons.exit_to_app,size:20),
+                          onPressed: ()=>logout(context)
+                        ),                      
                 ),
-                    PopupMenuItem(
-                      child: FlatButton.icon(
-                      label:Text("Cancel",style:TextStyle(fontSize:16,color: Colors.black87)),
-                      icon:Icon(Icons.cancel,size:20),
-                                          onPressed: ()=>Navigator.pop(context)    
+                          PopupMenuItem(
+                            child: FlatButton.icon(
+                            label:Text("Cancel",style:TextStyle(fontSize:16,color: Colors.black87)),
+                            icon:Icon(Icons.cancel,size:20),
+                                                onPressed: ()=>Navigator.pop(context)    
+                            ),
+                          ),
+                          ],
+                          ),
                       ),
-                    ),
                     ],
-                    ),
+                  ),
           Container(
-            height:height*0.5,
+            height:orientation==Orientation.portrait? height*0.5:height*0.5,
+            width:orientation==Orientation.portrait?width:width,
             
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -53,18 +62,15 @@ class InfoPage extends StatelessWidget {
             ),
            
           ),
-          SizedBox(height:10),
-           Padding(
-             padding: const EdgeInsets.only(right: 20),
-             child: Text('Superpowers of ADHD',
-                textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 29.0,
-                    color:Colors.black
-                    // decoration: TextDecoration.underline,
-                  ),
+          SizedBox(height:height*0.015),
+           Text('Superpowers of ADHD',
+              textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 29.0,
+                  color:Colors.black
+                  // decoration: TextDecoration.underline,
                 ),
-           ),
+              ),
           SizedBox(height:5),
           Padding(
             padding: const EdgeInsets.only(left:20,right:20),
@@ -77,14 +83,9 @@ class InfoPage extends StatelessWidget {
                       ),
             ),
           ),
-                       ],
-                     ),
-                   ),
-          
-          
-          // SizedBox(
-          //   height: 30.0,
-          // ),
+          SizedBox(
+            height: height*0.03,
+          ),
           Center(
             child: Container(
                 height: height*0.7,
@@ -127,8 +128,8 @@ class InfoPage extends StatelessWidget {
                    "assets/images/energy.png",
 
                     fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width*0.55,
-                    height: MediaQuery.of(context).size.height*0.25,
+                    width:orientation==Orientation.portrait? MediaQuery.of(context).size.width*0.55:width*0.9,
+                    height: orientation==Orientation.portrait? MediaQuery.of(context).size.height*0.25:height*0.31,
                   ),
                  ),
              ),
@@ -187,8 +188,8 @@ class InfoPage extends StatelessWidget {
                  child: Image.network(
                     'https://image.freepik.com/free-vector/brainstorming-concept-illustration_114360-592.jpg',
                     fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width*0.55,
-                    height: MediaQuery.of(context).size.height*0.25,
+                    width:orientation==Orientation.portrait? MediaQuery.of(context).size.width*0.55:width*0.9,
+                    height:orientation==Orientation.portrait? MediaQuery.of(context).size.height*0.25:height*0.31,
                   ),
                  ),
              ),
@@ -208,7 +209,7 @@ class InfoPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 30.0,
+            height: 130.0,
           ),
           Center(
             child: Container(
@@ -247,8 +248,8 @@ class InfoPage extends StatelessWidget {
                  child: Image.network(
                     'https://image.freepik.com/free-vector/building-graphic-design-creative-process_23-2148101309.jpg',
                     fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width*0.55,
-                    height: MediaQuery.of(context).size.height*0.25,
+                    width: orientation==Orientation.portrait? MediaQuery.of(context).size.width*0.55:width*0.9,
+                    height: orientation==Orientation.portrait? MediaQuery.of(context).size.height*0.25:height*0.31,
                   ),
                  ),
              ),
@@ -307,8 +308,8 @@ class InfoPage extends StatelessWidget {
                  child: Image.network(
                     'https://image.freepik.com/free-vector/golden-cup-with-arrow-hitting-target-center_3446-458.jpg',
                     fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width*0.55,
-                    height: MediaQuery.of(context).size.height*0.25,
+                    width:orientation==Orientation.portrait? MediaQuery.of(context).size.width*0.55:width*0.9,
+                    height:orientation==Orientation.portrait? MediaQuery.of(context).size.height*0.25:height*0.31,
                   ),
                  ),
              ),
@@ -330,10 +331,11 @@ class InfoPage extends StatelessWidget {
                 ),
             ),
           ),
+          SizedBox(height: 30,)
                  ],
              ),
               
            )
-    );
+           );
   }
 }
