@@ -36,7 +36,7 @@ class _YogaExerciseState extends State<YogaExercise> {
 
           children: <Widget>[
              GestureDetector(
-                      onTap:  () => Navigator.push(context, MaterialPageRoute(builder: (context) => Exercise(playlist: yogaPlaylist,background: 'https://image.freepik.com/free-photo/woman-practicing-yoga-sunset-light_155003-8083.jpg',))),
+                      onTap:  () => Navigator.push(context, MaterialPageRoute(builder: (context) => Exercise(playlist: yogaPlaylist,background: 'assets/images/mandala-4.jpg', asset: 1,))),
                       child: Stack(
                   children: <Widget>[
                     
@@ -91,7 +91,7 @@ class _YogaExerciseState extends State<YogaExercise> {
                 ),
               ),
                GestureDetector(
-                      onTap:  () => Navigator.push(context, MaterialPageRoute(builder: (context) => Exercise(playlist: exercisePlaylist, background: 'https://image.freepik.com/free-photo/healthy-lifestyle-healthy-habits-detox-water-fruit-salad-sport-equipment-dumbbells-blue-background-top-view-copy-space_73529-469.jpg',))),
+                      onTap:  () => Navigator.push(context, MaterialPageRoute(builder: (context) => Exercise(playlist: exercisePlaylist, background: 'https://image.freepik.com/free-photo/healthy-lifestyle-healthy-habits-detox-water-fruit-salad-sport-equipment-dumbbells-blue-background-top-view-copy-space_73529-469.jpg', asset: 0,))),
                       child: Stack(
                   children: <Widget>[
                     Container(

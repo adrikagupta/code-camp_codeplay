@@ -6,8 +6,9 @@ import 'package:foster/pages/exercisePlaylistCard.dart';
 class Exercise extends StatefulWidget {
     final List<ExercisePlaylist> playlist;
     final String background;
+    final int asset ;
 
-  const Exercise({this.playlist, this.background});
+  const Exercise({this.playlist, this.background, this.asset});
     
   @override
   _ExerciseState createState() => _ExerciseState();
@@ -23,7 +24,9 @@ class _ExerciseState extends State<Exercise> {
       body: SafeArea(
               child: Container(height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(    image: DecorationImage(
-            image: NetworkImage(widget.background),
+            image: widget.asset == 1?AssetImage(
+              widget.background,
+            ):NetworkImage(widget.background),
             fit: BoxFit.cover
             // alignment: Alignment.bottomCenter
                         )
