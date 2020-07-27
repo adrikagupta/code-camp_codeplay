@@ -67,7 +67,7 @@ class InfoPage extends StatelessWidget {
             child: Text('Be proud of your attention deficit hyperactivity disorder and all the out-of-the-box thinking, humor, drive, and passion it brings! Read on for some of the best traits of people with ADHD.',
                   // textAlign: TextAlign.center,
                   style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 17.0,
                         // decoration: TextDecoration.underline,
                         color: Colors.black54
                       ),
@@ -110,8 +110,8 @@ class InfoPage extends StatelessWidget {
                   Padding(
                  padding: const EdgeInsets.all(8.0),
                  child: Center(
-                 child: Image.network(
-                    'https://image.freepik.com/free-photo/joyful-young-woman-yellow-shirt-jumping-celebrating_74952-246.jpg',
+                 child: Image.asset(
+                   "assets/images/energy.png",
                     fit: BoxFit.cover,
                     width: MediaQuery.of(context).size.width*0.55,
                     height: MediaQuery.of(context).size.height*0.25,
