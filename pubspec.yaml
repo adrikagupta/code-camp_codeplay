@@ -33,7 +33,7 @@ dependencies:
   rxdart: ^0.24.0
   audio_service: ^0.11.2
   page_transition: ^1.1.4
-  neumorphic: ^0.3.0  
+  flutter_neumorphic: ^3.0.1  
 # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3

@@ -5,6 +5,7 @@ import 'package:audio_service/audio_service.dart';
 import 'package:foster/models/lullabyList.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 MediaControl playControl = MediaControl(
   androidIcon: 'drawable/ic_action_play_arrow',
@@ -58,14 +59,54 @@ class MainScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (processingState == AudioProcessingState.none) ...[
-                    audioPlayerButton(),
+                    Center(
+                      child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height *0.2,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
+                            child: Neumorphic(
+                              style: NeumorphicStyle(
+                                boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(20.0))),
+                              ),
+                              child: 
+                              Image.network(
+                              'https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg',
+                                // height: MediaQuery.of(context).size.height *0.6,
+                        ),
+                            ),
+                          ),
+                          audioPlayerButton(),
+                        ],
+                      ),
+                    ),
                   ] else ...[
                     if (queue != null && queue.isNotEmpty)
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          if (mediaItem?.title != null) 
-                          Image.network(
-                            mediaItem.artUri,
+                          if (mediaItem?.title != null) Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(mediaItem.title,
+                              style: TextStyle(
+                                fontSize: 40.0,
+                              ),
+                            ),
+                          ),
+                          if (mediaItem?.artUri != null) 
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Neumorphic(
+                              style: NeumorphicStyle(
+                                boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(50.0))),
+                              ),
+                                child: Image.network(
+                                mediaItem.artUri,
+                              ),
+                            ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -77,6 +118,7 @@ class MainScreen extends StatelessWidget {
                                     ? null
                                     : AudioService.skipToPrevious,
                               ),
+                              if (playing) pauseButton() else playButton(),
                               IconButton(
                                 icon: Icon(Icons.skip_next),
                                 iconSize: 64.0,
@@ -84,35 +126,36 @@ class MainScreen extends StatelessWidget {
                                     ? null
                                     : AudioService.skipToNext,
                               ),
+                              
+                              stopButton(),
                             ],
                           ),
                         ],
                       ),
-                    if (mediaItem?.title != null) Text(mediaItem.title),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (playing) pauseButton() else playButton(),
-                        stopButton(),
-                      ],
-                    ),
+                    
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                        
+                    //   ],
+                    // ),
                     positionIndicator(mediaItem, state),
-                    Text("Processing state: " +
-                        "$processingState".replaceAll(RegExp(r'^.*\.'), '')),
-                    StreamBuilder(
-                      stream: AudioService.customEventStream,
-                      builder: (context, snapshot) {
-                        return Text("custom event: ${snapshot.data}");
-                      },
-                    ),
-                    StreamBuilder<bool>(
-                      stream: AudioService.notificationClickEventStream,
-                      builder: (context, snapshot) {
-                        return Text(
-                          'Notification Click Status: ${snapshot.data}',
-                        );
-                      },
-                    ),
+                    // Text("Processing state: " +
+                    //     "$processingState".replaceAll(RegExp(r'^.*\.'), '')),
+                    // StreamBuilder(
+                    //   stream: AudioService.customEventStream,
+                    //   builder: (context, snapshot) {
+                    //     return Text("custom event: ${snapshot.data}");
+                    //   },
+                    // ),
+                    // StreamBuilder<bool>(
+                    //   stream: AudioService.notificationClickEventStream,
+                    //   builder: (context, snapshot) {
+                    //     return Text(
+                    //       'Notification Click Status: ${snapshot.data}',
+                    //     );
+                    //   },
+                    // ),
                   ],
                 ],
               );
@@ -133,8 +176,8 @@ class MainScreen extends StatelessWidget {
           (queue, mediaItem, playbackState) =>
               ScreenState(queue, mediaItem, playbackState));
 
-  RaisedButton audioPlayerButton() => startButton(
-        'AudioPlayer',
+  Container audioPlayerButton() => startButton(
+        'Play Music',
         () {
           AudioService.start(
             backgroundTaskEntrypoint: _audioPlayerTaskEntrypoint,
@@ -149,13 +192,32 @@ class MainScreen extends StatelessWidget {
       );
 
   
-  RaisedButton startButton(String label, VoidCallback onPressed) =>
-      RaisedButton(
-        child: Text(label),
-        onPressed: onPressed,
+  Container startButton(String label, VoidCallback onPressed) =>
+  // https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg
+      Container(
+        margin: EdgeInsets.all(10.0),
+          // decoration: BoxDecoration(
+          //   //  shape: BoxShape.
+          //  color: Colors.white70,
+          //   borderRadius: BorderRadius.all(Radius.circular(20.0))
+          //  ),
+          //  padding: const EdgeInsets.all(20.0),
+        child: FlatButton.icon(
+           color: Colors.white,
+           icon: Icon(Icons.play_arrow),
+          label: Container(
+           padding: const EdgeInsets.all(20.0),
+           decoration: BoxDecoration(
+           color: Colors.white,
+            // borderRadius: BorderRadius.all(Radius.circular(60.0))
+           ),
+           child: Text(label)),
+         onPressed: onPressed,
+        ),
       );
 
   IconButton playButton() => IconButton(
+    // color: Colors.white,
         icon: Icon(Icons.play_arrow),
         iconSize: 64.0,
         onPressed: AudioService.play,
@@ -188,6 +250,7 @@ class MainScreen extends StatelessWidget {
           children: [
             if (duration != null)
               Slider(
+                activeColor: Color.fromRGBO(43, 203, 186, 1.0),
                 min: 0.0,
                 max: duration,
                 value: seekPos ?? max(0.0, min(position, duration)),
@@ -196,17 +259,11 @@ class MainScreen extends StatelessWidget {
                 },
                 onChangeEnd: (value) {
                   AudioService.seekTo(Duration(milliseconds: value.toInt()));
-                  // Due to a delay in platform channel communication, there is
-                  // a brief moment after releasing the Slider thumb before the
-                  // new position is broadcast from the platform side. This
-                  // hack is to hold onto seekPos until the next state update
-                  // comes through.
-                  // TODO: Improve this code.
                   seekPos = value;
                   _dragPositionSubject.add(null);
                 },
               ),
-            Text("${state.currentPosition}"),
+            Text(state.currentPosition.toString().split('.')[0]),
           ],
         );
       },
@@ -222,7 +279,6 @@ class ScreenState {
   ScreenState(this.queue, this.mediaItem, this.playbackState);
 }
 
-// NOTE: Your entrypoint MUST be a top-level function.
 void _audioPlayerTaskEntrypoint() async {
   AudioServiceBackground.run(() => AudioPlayerTask());
 }
