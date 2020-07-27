@@ -15,26 +15,37 @@ class InfoPage extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var orientation = MediaQuery.of(context).orientation;
     return SafeArea(
            child: SingleChildScrollView(
                 child: Column(
                  crossAxisAlignment: CrossAxisAlignment.end,
                  children: <Widget>[
-                   RaisedButton.icon(
-                       color: Theme.of(context).primaryColor,
-                      icon: Icon(Icons.exit_to_app,
-                        color: Colors.white,
-                      ),
-                      onPressed: ()=> logout(context),
-                       label: Text('Logout',
-                       style: TextStyle(
-                         color: Colors.white,
-                       )
-                       ),
+                   Container(
+                     height: height,
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.end,
+                       children: <Widget>[
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: RaisedButton.icon(
+                               color: Theme.of(context).primaryColor,
+                              icon: Icon(Icons.exit_to_app,
+                                color: Colors.white,
+                              ),
+                              onPressed: ()=> logout(context),
+                               label: Text('Logout',
+                               style: TextStyle(
+                                 color: Colors.white,
+                               )
+                               ),
           ),
-          
+                         ),
           Container(
-            height:350,
+            height:height*0.5,
             
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -68,9 +79,14 @@ class InfoPage extends StatelessWidget {
                       ),
             ),
           ),
-          SizedBox(
-            height: 30.0,
-          ),
+                       ],
+                     ),
+                   ),
+          
+          
+          // SizedBox(
+          //   height: 30.0,
+          // ),
           Center(
             child: Container(
                 height: 450.0,
@@ -106,7 +122,7 @@ class InfoPage extends StatelessWidget {
                  padding: const EdgeInsets.all(8.0),
                  child: Center(
                  child: Image.network(
-                    'https://image.freepik.com/free-photo/joyful-young-woman-yellow-shirt-jumping-celebrating_74952-246.jpg',
+                    'https://image.freepik.com/free-vector/businessman-after-getting-restful-sleep_24381-844.jpg',
                     fit: BoxFit.cover,
                     width: MediaQuery.of(context).size.width*0.55,
                     height: MediaQuery.of(context).size.height*0.25,
