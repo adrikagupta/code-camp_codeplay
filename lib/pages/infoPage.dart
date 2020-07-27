@@ -13,11 +13,16 @@ class InfoPage extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    var orientation = MediaQuery.of(context).orientation;
+    var height = orientation==Orientation.landscape? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
+    var width = orientation==Orientation.portrait? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
+    
     return SafeArea(
            child: SingleChildScrollView(
                 child: Column(
                  crossAxisAlignment: CrossAxisAlignment.end,
                  children: <Widget>[
+
                   PopupMenuButton(
                     icon: Icon(Icons.more_horiz,size:30,color: Theme.of(context).primaryColor,),
                     itemBuilder: (context) => [
@@ -37,9 +42,8 @@ class InfoPage extends StatelessWidget {
                     ),
                     ],
                     ),
-          
           Container(
-            height:350,
+            height:height*0.5,
             
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -73,12 +77,17 @@ class InfoPage extends StatelessWidget {
                       ),
             ),
           ),
-          SizedBox(
-            height: 30.0,
-          ),
+                       ],
+                     ),
+                   ),
+          
+          
+          // SizedBox(
+          //   height: 30.0,
+          // ),
           Center(
             child: Container(
-                height: 450.0,
+                height: height*0.7,
                 width: MediaQuery.of(context).size.width*0.85,
                 decoration: BoxDecoration(
                 color: Colors.white,
@@ -110,8 +119,13 @@ class InfoPage extends StatelessWidget {
                   Padding(
                  padding: const EdgeInsets.all(8.0),
                  child: Center(
+// <<<<<<< lullaby
+//                  child: Image.network(
+//                     'https://image.freepik.com/free-vector/businessman-after-getting-restful-sleep_24381-844.jpg',
+
                  child: Image.asset(
                    "assets/images/energy.png",
+
                     fit: BoxFit.cover,
                     width: MediaQuery.of(context).size.width*0.55,
                     height: MediaQuery.of(context).size.height*0.25,
