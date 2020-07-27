@@ -18,8 +18,7 @@ class _YogaExerciseState extends State<YogaExercise> {
               decoration: BoxDecoration(    image: DecorationImage(
             image: AssetImage('assets/images/breathe.jpg'),
             fit: BoxFit.cover
-            // alignment: Alignment.bottomCenter
-                        )
+                   )
                       ),
 
         child: Column(
@@ -39,15 +38,6 @@ class _YogaExerciseState extends State<YogaExercise> {
                       height: MediaQuery.of(context).size.height*0.23,
                       decoration: BoxDecoration(
                         color: Color.fromRGBO(234, 134, 133,1.0),
-                    // gradient: LinearGradient(
-                    //   colors: [
-                    //     Theme.of(context).primaryColorLight,
-                    //     Theme.of(context).primaryColorDark,
-                    //     Theme.of(context).primaryColorDark,
-                    //   ],
-                    //   begin: Alignment.topRight,
-                    //   end: Alignment.bottomLeft
-                    // ),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black12,
@@ -85,7 +75,7 @@ class _YogaExerciseState extends State<YogaExercise> {
                 child: SvgPicture.network(
                   'https://image.flaticon.com/icons/svg/2647/2647625.svg',
                   fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width*0.5,
+                  width: MediaQuery.of(context).size.width*0.45,
                   height: MediaQuery.of(context).size.height*0.23,
                 ),
             )
@@ -102,11 +92,7 @@ class _YogaExerciseState extends State<YogaExercise> {
                       height: MediaQuery.of(context).size.height*0.23,
                       decoration: BoxDecoration(
                         color: Color.fromRGBO(248, 194, 145,1.0),
-                    // gradient: LinearGradient(
-                    //   colors: [Theme.of(context).primaryColor],
-                    //   begin: Alignment.topRight,
-                    //   end: Alignment.bottomLeft
-                    // ),
+                    
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black12,
@@ -117,7 +103,6 @@ class _YogaExerciseState extends State<YogaExercise> {
                     ],
                     borderRadius: BorderRadius.circular(30.0),
                       ),
-                      // child: Text('HI')
                       ),
                     Positioned(
                       left: MediaQuery.of(context).size.width*0.2,
@@ -140,12 +125,12 @@ class _YogaExerciseState extends State<YogaExercise> {
                       ),
                     ),
                     Positioned(
-                left: MediaQuery.of(context).size.width*0.5,
+                left: MediaQuery.of(context).size.width*0.55,
                  top: MediaQuery.of(context).size.height*0.0,
                 child: SvgPicture.network(
                   'https://image.flaticon.com/icons/svg/2548/2548537.svg',
                   fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width*0.5,
+                  width: MediaQuery.of(context).size.width*0.4,
                   height: MediaQuery.of(context).size.height*0.23,
                 ),
             )
