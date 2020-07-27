@@ -33,7 +33,6 @@ MediaControl stopControl = MediaControl(
   action: MediaAction.stop,
 );
 class MainScreen extends StatelessWidget {
-  /// Tracks the position while the user drags the seek bar.
   final BehaviorSubject<double> _dragPositionSubject =
       BehaviorSubject.seeded(null);
 
@@ -75,7 +74,6 @@ class MainScreen extends StatelessWidget {
                               child: 
                               Image.network(
                               'https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg',
-                                // height: MediaQuery.of(context).size.height *0.6,
                         ),
                             ),
                           ),
@@ -132,30 +130,7 @@ class MainScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                    
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                        
-                    //   ],
-                    // ),
                     positionIndicator(mediaItem, state),
-                    // Text("Processing state: " +
-                    //     "$processingState".replaceAll(RegExp(r'^.*\.'), '')),
-                    // StreamBuilder(
-                    //   stream: AudioService.customEventStream,
-                    //   builder: (context, snapshot) {
-                    //     return Text("custom event: ${snapshot.data}");
-                    //   },
-                    // ),
-                    // StreamBuilder<bool>(
-                    //   stream: AudioService.notificationClickEventStream,
-                    //   builder: (context, snapshot) {
-                    //     return Text(
-                    //       'Notification Click Status: ${snapshot.data}',
-                    //     );
-                    //   },
-                    // ),
                   ],
                 ],
               );
@@ -166,8 +141,6 @@ class MainScreen extends StatelessWidget {
     );
   }
 
-  /// Encapsulate all the different data we're interested in into a single
-  /// stream so we don't have to nest StreamBuilders.
   Stream<ScreenState> get _screenStateStream =>
       Rx.combineLatest3<List<MediaItem>, MediaItem, PlaybackState, ScreenState>(
           AudioService.queueStream,
@@ -193,15 +166,8 @@ class MainScreen extends StatelessWidget {
 
   
   Container startButton(String label, VoidCallback onPressed) =>
-  // https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg
-      Container(
+    Container(
         margin: EdgeInsets.all(10.0),
-          // decoration: BoxDecoration(
-          //   //  shape: BoxShape.
-          //  color: Colors.white70,
-          //   borderRadius: BorderRadius.all(Radius.circular(20.0))
-          //  ),
-          //  padding: const EdgeInsets.all(20.0),
         child: FlatButton.icon(
            color: Colors.white,
            icon: Icon(Icons.play_arrow),
@@ -209,7 +175,6 @@ class MainScreen extends StatelessWidget {
            padding: const EdgeInsets.all(20.0),
            decoration: BoxDecoration(
            color: Colors.white,
-            // borderRadius: BorderRadius.all(Radius.circular(60.0))
            ),
            child: Text(label)),
          onPressed: onPressed,
@@ -217,8 +182,7 @@ class MainScreen extends StatelessWidget {
       );
 
   IconButton playButton() => IconButton(
-    // color: Colors.white,
-        icon: Icon(Icons.play_arrow),
+    icon: Icon(Icons.play_arrow),
         iconSize: 64.0,
         onPressed: AudioService.play,
       );
