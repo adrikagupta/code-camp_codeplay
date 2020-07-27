@@ -38,123 +38,136 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var orientation = MediaQuery.of(context).orientation;
+
     return SafeArea(
           child: Scaffold(
         body: SingleChildScrollView(
-                child: Center(
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_back_ios),
-                      iconSize: 34.0,
-                      onPressed: (){
-                        Navigator.pop(context);
-                      }
+                child: Container(
+                  height: orientation == Orientation.portrait? height:height*1.5,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image:AssetImage("assets/images/music-bg-2.jpg"),
+                      fit: BoxFit.cover
                     ),
                   ),
-                ),
-                StreamBuilder<ScreenState>(
-                  stream: _screenStateStream,
-                  builder: (context, snapshot) {
-                    final screenState = snapshot.data;
-                    final queue = screenState?.queue;
-                    final mediaItem = screenState?.mediaItem;
-                    final state = screenState?.playbackState;
-                    final processingState =
-                        state?.processingState ?? AudioProcessingState.none;
-                    final playing = state?.playing ?? false;
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (processingState == AudioProcessingState.none) ...[
-                          Center(
-                            child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height *0.2,
+                  child: Center(
+            child: Column(
+              children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_back_ios),
+                        iconSize: 34.0,
+                        onPressed: (){
+                          Navigator.pop(context);
+                        }
+                      ),
+                    ),
+                  ),
+                  StreamBuilder<ScreenState>(
+                    stream: _screenStateStream,
+                    builder: (context, snapshot) {
+                      final screenState = snapshot.data;
+                      final queue = screenState?.queue;
+                      final mediaItem = screenState?.mediaItem;
+                      final state = screenState?.playbackState;
+                      final processingState =
+                          state?.processingState ?? AudioProcessingState.none;
+                      final playing = state?.playing ?? false;
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (processingState == AudioProcessingState.none) ...[
+                            Center(
+                              child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *0.15,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
+                                    child: Neumorphic(
+                                      style: NeumorphicStyle(
+                                        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(20.0))),
+                                      ),
+                                      child: 
+                                      Image.network(
+                                      'https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg',
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
-                                  child: Neumorphic(
-                                    style: NeumorphicStyle(
-                                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(20.0))),
                                     ),
-                                    child: 
-                                    Image.network(
-                                    'https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg',
+                                  ),
+                                  audioPlayerButton(),
+                                ],
                               ),
-                                  ),
-                                ),
-                                audioPlayerButton(),
-                              ],
                             ),
-                          ),
-                        ] else ...[
-                          if (queue != null && queue.isNotEmpty)
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                if (mediaItem?.title != null) Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(mediaItem.title,
-                                    style: TextStyle(
-                                      fontSize: 40.0,
+                          ] else ...[
+                            if (queue != null && queue.isNotEmpty)
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  if (mediaItem?.title != null) Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(mediaItem.title,
+                                      style: TextStyle(
+                                        fontSize: 40.0,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                if (mediaItem?.artUri != null) 
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Neumorphic(
-                                    style: NeumorphicStyle(
-                                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(50.0))),
-                                    ),
-                                      child: Image.network(
-                                      mediaItem.artUri,
-                                      height: MediaQuery.of(context).size.height * 0.35,
-                                      width: MediaQuery.of(context).size.height * 0.85,
-                                      fit: BoxFit.cover,
+                                  if (mediaItem?.artUri != null) 
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Neumorphic(
+                                      style: NeumorphicStyle(
+                                        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(50.0))),
+                                      ),
+                                        child: Image.network(
+                                        mediaItem.artUri,
+                                        height: orientation==Orientation.portrait? MediaQuery.of(context).size.height * 0.35:height*0.6,
+                                        width:  orientation==Orientation.portrait?MediaQuery.of(context).size.height * 0.85:width*0.6,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      icon: Icon(Icons.skip_previous),
-                                      iconSize: 64.0,
-                                      onPressed: mediaItem == queue.first
-                                          ? null
-                                          : AudioService.skipToPrevious,
-                                    ),
-                                    if (playing) pauseButton() else playButton(),
-                                    IconButton(
-                                      icon: Icon(Icons.skip_next),
-                                      iconSize: 64.0,
-                                      onPressed: mediaItem == queue.last
-                                          ? null
-                                          : AudioService.skipToNext,
-                                    ),
-                                    
-                                    stopButton(),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          positionIndicator(mediaItem, state),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      IconButton(
+                                        icon: Icon(Icons.skip_previous),
+                                        iconSize: 64.0,
+                                        onPressed: mediaItem == queue.first
+                                            ? null
+                                            : AudioService.skipToPrevious,
+                                      ),
+                                      if (playing) pauseButton() else playButton(),
+                                      IconButton(
+                                        icon: Icon(Icons.skip_next),
+                                        iconSize: 64.0,
+                                        onPressed: mediaItem == queue.last
+                                            ? null
+                                            : AudioService.skipToNext,
+                                      ),
+                                      
+                                      stopButton(),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            positionIndicator(mediaItem, state),
+                          ],
                         ],
-                      ],
-                    );
-                  },
-                ),
+                      );
+                    },
+                  ),
               ],
             ),
           ),
+                ),
         ),
       ),
     );
@@ -186,7 +199,7 @@ class MainScreen extends StatelessWidget {
   
   Container startButton(String label, VoidCallback onPressed) =>
     Container(
-        margin: EdgeInsets.all(10.0),
+        margin: EdgeInsets.only(top:20),
         child: FlatButton.icon(
            color: Colors.white,
            icon: Icon(Icons.play_arrow),
