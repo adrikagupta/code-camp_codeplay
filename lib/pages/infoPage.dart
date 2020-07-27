@@ -15,10 +15,10 @@ class InfoPage extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     var orientation = MediaQuery.of(context).orientation;
+    var height = orientation==Orientation.landscape? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
+    var width = orientation==Orientation.portrait? MediaQuery.of(context).size.width : MediaQuery.of(context).size.height;
+    
     return SafeArea(
            child: SingleChildScrollView(
                 child: Column(

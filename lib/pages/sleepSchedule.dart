@@ -1,5 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foster/pages/lullaby.dart';
 import 'package:foster/pages/musicNotification.dart';
@@ -31,51 +32,53 @@ class _SleepScheduleState extends State<SleepSchedule> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     var orientation = MediaQuery.of(context).orientation;
-    return Scaffold(
-      floatingActionButton:    
-      Padding(
-        padding: const EdgeInsets.only(top: 45.0),
-        child: Align(
-          alignment: Alignment.topRight,
-                child: GestureDetector(
-                  child: Padding(
-                    padding: const  EdgeInsets.only(top: 20.0, left: 20.0),
-                    child:  Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          SvgPicture.network(
-                            'https://www.svgrepo.com/show/243560/musical-note-music.svg',
-                            height: height*0.08,
-                          ),
-                          SizedBox(
-                            height: height*0.03,
-                          ),
-                          Text('Lullabies',
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          ),
-                        ],
+    return SafeArea(
+          child: Scaffold(
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(top: 28.0, right: 0.0),
+          child: Align(
+            alignment: Alignment.topRight,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        height: height*0.1,
+                        width: height*0.1,
+                        child: FloatingActionButton(
+                          backgroundColor: Colors.white,
+                        // color: ,
+                child:  SvgPicture.network(
+                      'https://www.svgrepo.com/show/243560/musical-note-music.svg',
+                      height: height*0.05,
+                ),
+                                    onPressed: (){
+                                print('lullaby');
+                                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                  return AudioServiceWidget(child: MainScreen());
+                                }));
+                              }
+              ),
                       ),
-                    ),
-                  onTap: (){
-                    print('lullaby');
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return AudioServiceWidget(child: MainScreen());
-                    }));
-                  }
-                  )
-              
+                      SizedBox(
+                                      height: height*0.01,
+                                    ),
+                                    Text('Sleep Music',
+                                    style: TextStyle(
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                    ),
+                    ],
+                  ),
+          ),
         ),
-      ), 
-      body:   
-      SingleChildScrollView(
-              child: Column(
-          children: <Widget>[
-            Sleep(userId: widget.userId)
-          ]
-        ),
-      )
+        body:   
+        SingleChildScrollView(
+                child: Column(
+            children: <Widget>[
+              Sleep(userId: widget.userId)
+            ]
+          ),
+        )
+      ),
     );
   }
 }

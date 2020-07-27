@@ -38,103 +38,122 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Lullabies'),
-      ),
-      body: SingleChildScrollView(
-              child: Center(
-          child: StreamBuilder<ScreenState>(
-            stream: _screenStateStream,
-            builder: (context, snapshot) {
-              final screenState = snapshot.data;
-              final queue = screenState?.queue;
-              final mediaItem = screenState?.mediaItem;
-              final state = screenState?.playbackState;
-              final processingState =
-                  state?.processingState ?? AudioProcessingState.none;
-              final playing = state?.playing ?? false;
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (processingState == AudioProcessingState.none) ...[
-                    Center(
-                      child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height *0.2,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
-                            child: Neumorphic(
-                              style: NeumorphicStyle(
-                                boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(20.0))),
-                              ),
-                              child: 
-                              Image.network(
-                              'https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg',
-                        ),
-                            ),
-                          ),
-                          audioPlayerButton(),
-                        ],
-                      ),
+    return SafeArea(
+          child: Scaffold(
+        body: SingleChildScrollView(
+                child: Center(
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back_ios),
+                      iconSize: 34.0,
+                      onPressed: (){
+                        Navigator.pop(context);
+                      }
                     ),
-                  ] else ...[
-                    if (queue != null && queue.isNotEmpty)
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          if (mediaItem?.title != null) Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(mediaItem.title,
-                              style: TextStyle(
-                                fontSize: 40.0,
+                  ),
+                ),
+                StreamBuilder<ScreenState>(
+                  stream: _screenStateStream,
+                  builder: (context, snapshot) {
+                    final screenState = snapshot.data;
+                    final queue = screenState?.queue;
+                    final mediaItem = screenState?.mediaItem;
+                    final state = screenState?.playbackState;
+                    final processingState =
+                        state?.processingState ?? AudioProcessingState.none;
+                    final playing = state?.playing ?? false;
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (processingState == AudioProcessingState.none) ...[
+                          Center(
+                            child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height *0.2,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
+                                  child: Neumorphic(
+                                    style: NeumorphicStyle(
+                                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(20.0))),
+                                    ),
+                                    child: 
+                                    Image.network(
+                                    'https://image.freepik.com/free-vector/relax-chill-out-big-city-cartoon-vector-concept_33099-1378.jpg',
                               ),
+                                  ),
+                                ),
+                                audioPlayerButton(),
+                              ],
                             ),
                           ),
-                          if (mediaItem?.artUri != null) 
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Neumorphic(
-                              style: NeumorphicStyle(
-                                boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(50.0))),
-                              ),
-                                child: Image.network(
-                                mediaItem.artUri,
-                              ),
+                        ] else ...[
+                          if (queue != null && queue.isNotEmpty)
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                if (mediaItem?.title != null) Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(mediaItem.title,
+                                    style: TextStyle(
+                                      fontSize: 40.0,
+                                    ),
+                                  ),
+                                ),
+                                if (mediaItem?.artUri != null) 
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Neumorphic(
+                                    style: NeumorphicStyle(
+                                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(50.0))),
+                                    ),
+                                      child: Image.network(
+                                      mediaItem.artUri,
+                                      height: MediaQuery.of(context).size.height * 0.35,
+                                      width: MediaQuery.of(context).size.height * 0.85,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                      icon: Icon(Icons.skip_previous),
+                                      iconSize: 64.0,
+                                      onPressed: mediaItem == queue.first
+                                          ? null
+                                          : AudioService.skipToPrevious,
+                                    ),
+                                    if (playing) pauseButton() else playButton(),
+                                    IconButton(
+                                      icon: Icon(Icons.skip_next),
+                                      iconSize: 64.0,
+                                      onPressed: mediaItem == queue.last
+                                          ? null
+                                          : AudioService.skipToNext,
+                                    ),
+                                    
+                                    stopButton(),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                icon: Icon(Icons.skip_previous),
-                                iconSize: 64.0,
-                                onPressed: mediaItem == queue.first
-                                    ? null
-                                    : AudioService.skipToPrevious,
-                              ),
-                              if (playing) pauseButton() else playButton(),
-                              IconButton(
-                                icon: Icon(Icons.skip_next),
-                                iconSize: 64.0,
-                                onPressed: mediaItem == queue.last
-                                    ? null
-                                    : AudioService.skipToNext,
-                              ),
-                              
-                              stopButton(),
-                            ],
-                          ),
+                          positionIndicator(mediaItem, state),
                         ],
-                      ),
-                    positionIndicator(mediaItem, state),
-                  ],
-                ],
-              );
-            },
+                      ],
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -157,7 +176,7 @@ class MainScreen extends StatelessWidget {
             androidNotificationChannelName: 'Audio Service Demo',
             // Enable this if you want the Android service to exit the foreground state on pause.
             //androidStopForegroundOnPause: true,
-            androidNotificationColor: 0xFF2196f3,
+            androidNotificationColor: 0xFF0000,
             androidNotificationIcon: 'mipmap/ic_launcher',
             androidEnableQueue: true,
           );

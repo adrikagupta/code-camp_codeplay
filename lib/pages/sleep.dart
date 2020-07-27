@@ -116,7 +116,7 @@ class _SleepState extends State<Sleep> {
                                 ),
                     SizedBox(height: 20.0,),            
                    Text(
-                    sleepSchedule[index].duration<8? 'Please Sleep well. Listen to lullabies' : 'Great Job! You\'re Sleeping pretty well',
+                    sleepSchedule[index].duration<8? 'Please Sleep well. Listen to Sleep Music' : 'Great Job! You\'re Sleeping pretty well',
                       style: TextStyle(
                             color: Colors.white,
                             fontSize: 15.0,
