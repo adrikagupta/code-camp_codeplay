@@ -89,7 +89,7 @@ class InfoPage extends StatelessWidget {
           // ),
           Center(
             child: Container(
-                height: 450.0,
+                height: height*0.7,
                 width: MediaQuery.of(context).size.width*0.85,
                 decoration: BoxDecoration(
                 color: Colors.white,
