@@ -32,35 +32,7 @@ class _SleepScheduleState extends State<SleepSchedule> {
     var width = MediaQuery.of(context).size.width;
     var orientation = MediaQuery.of(context).orientation;
     return Scaffold(
-      // appBar: AppBar(
-      //   actions: <Widget>[
-      
-      //   ],
-      //   ),
       floatingActionButton:    
-      // Align(
-      //   alignment: Alignment.topRight,
-      //         child: Container(
-      //           width: 60.0,
-      //           child: Padding(
-      //               padding: EdgeInsets.only(top: 50.0),
-      //               child: NeuButton(
-      //                      child: Icon(Icons.music_note),
-      //                      onPressed: (){},
-      //                      decoration: NeumorphicDecoration(
-      //                         shape: BoxShape.circle ,
-      //                        color: Colors.white
-      //                       )
-      //                      ),
-      //             ),
-      //         ),
-      // ),
-      // Text('Lullabies',
-      //             style: TextStyle(
-      //                 // fontFamily: 'Lobster',
-      //                 color: Colors.white,
-      //              ),
-      //             ),
       Padding(
         padding: const EdgeInsets.only(top: 45.0),
         child: Align(
@@ -93,18 +65,7 @@ class _SleepScheduleState extends State<SleepSchedule> {
                     }));
                   }
                   )
-              //   RaisedButton.icon(
-              //  color: Theme.of(context).primaryColor,
-              //   icon: Icon(Icons.music_note,
-              //       color: Colors.white,
-              //    ),
-              //   onPressed: (){},
-              //    label: Text('Lullabies',
-              //      style: TextStyle(
-              //        color: Colors.white,
-              //      )
-              //    ),
-              // ),
+              
         ),
       ), 
       body:   

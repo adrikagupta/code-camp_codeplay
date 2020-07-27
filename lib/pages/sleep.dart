@@ -66,9 +66,11 @@ class _SleepState extends State<Sleep> {
   }
 
   List<Widget> sleep(){
+    
+    var height = MediaQuery.of(context).size.height;
     return List.generate(sleepSchedule.length, (index){
     return Container(
-              height: MediaQuery.of(context).size.height*0.95,
+              height: height<520.0?520.0:height*0.95,
               decoration: BoxDecoration(
                   color: Colors.purple,
                   gradient: new LinearGradient(
@@ -190,10 +192,15 @@ class _SleepState extends State<Sleep> {
 
   @override
   Widget build(BuildContext context) {
+    
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var orientation = MediaQuery.of(context).orientation;
     return Column(
         children: <Widget>[
           Container(
-                height: MediaQuery.of(context).size.height*0.95,
+                // height: height*0.95,
+                height: height<520.0?520.0:height*0.95,
                 decoration: BoxDecoration(
                     color: Colors.purple,
                     gradient: new LinearGradient(

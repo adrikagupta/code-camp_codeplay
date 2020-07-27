@@ -12,6 +12,10 @@ class YogaExercise extends StatefulWidget {
 class _YogaExerciseState extends State<YogaExercise> {
   @override
   Widget build(BuildContext context) {
+    
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var orientation = MediaQuery.of(context).orientation;
     return SafeArea(
       child: Container(
             height: MediaQuery.of(context).size.height*0.9,
@@ -21,7 +25,8 @@ class _YogaExerciseState extends State<YogaExercise> {
                    )
                       ),
 
-        child: Column(
+        child: orientation==Orientation.landscape?Row:Column
+        (
           
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
