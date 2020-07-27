@@ -23,12 +23,12 @@ class SlideItem extends StatelessWidget {
             color: Colors.grey.shade100,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.075),
+                color: Colors.black.withOpacity(0.05),
                 offset: Offset(10, 10),
                 blurRadius: 10,
               ),
               BoxShadow(
-                color: Colors.white,
+                color: Colors.grey.withOpacity(0.06),
                 offset: Offset(-10, -10),
                 blurRadius: 10,
               ),
@@ -47,7 +47,7 @@ class SlideItem extends StatelessWidget {
           slideList[index].title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 22,
+            fontSize: 20,
             color: Color.fromRGBO(56, 173, 169,1.0),
           ),
         ),

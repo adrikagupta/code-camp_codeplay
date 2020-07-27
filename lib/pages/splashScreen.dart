@@ -14,7 +14,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() { 
     super.initState();
-    
     Timer(Duration(seconds: 4),()=>Navigator.push(context,MaterialPageRoute(builder:(context)=>SwipePages())));
   }
 
@@ -24,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     var width = MediaQuery.of(context).size.width;
     var orientation = MediaQuery.of(context).orientation;
     return Scaffold(
+      backgroundColor: Color.fromRGBO(225, 237, 128,1),
       body:SafeArea(
         child: Stack(
           children:<Widget>[

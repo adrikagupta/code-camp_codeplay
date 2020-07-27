@@ -9,8 +9,6 @@ class InfoPage extends StatelessWidget {
 
   logout(BuildContext context) async {
     await googleSignIn.signOut();
-    print('logged out');
-    // Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
   @override
@@ -24,26 +22,26 @@ class InfoPage extends StatelessWidget {
                 child: Column(
                  crossAxisAlignment: CrossAxisAlignment.end,
                  children: <Widget>[
-                   Container(
-                     height: height,
-                     child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.end,
-                       children: <Widget>[
-                         Padding(
-                           padding: const EdgeInsets.all(8.0),
-                           child: RaisedButton.icon(
-                               color: Theme.of(context).primaryColor,
-                              icon: Icon(Icons.exit_to_app,
-                                color: Colors.white,
-                              ),
-                              onPressed: ()=> logout(context),
-                               label: Text('Logout',
-                               style: TextStyle(
-                                 color: Colors.white,
-                               )
-                               ),
-          ),
-                         ),
+
+                  PopupMenuButton(
+                    icon: Icon(Icons.more_horiz,size:30,color: Theme.of(context).primaryColor,),
+                    itemBuilder: (context) => [
+                    PopupMenuItem(
+                    child: FlatButton.icon(
+                    label:Text("Logout",style:TextStyle(fontSize:16,color: Colors.black87)),
+                    icon:Icon(Icons.exit_to_app,size:20),
+                    onPressed: ()=>logout(context)
+                  ),                      
+                ),
+                    PopupMenuItem(
+                      child: FlatButton.icon(
+                      label:Text("Cancel",style:TextStyle(fontSize:16,color: Colors.black87)),
+                      icon:Icon(Icons.cancel,size:20),
+                                          onPressed: ()=>Navigator.pop(context)    
+                      ),
+                    ),
+                    ],
+                    ),
           Container(
             height:height*0.5,
             
@@ -67,13 +65,13 @@ class InfoPage extends StatelessWidget {
                   ),
                 ),
            ),
-          SizedBox(height:10),
+          SizedBox(height:5),
           Padding(
             padding: const EdgeInsets.only(left:20,right:20),
-            child: Text('Not every person with ADHD has the same personality traits, but there are some personal strengths that can make having the condition an advantage, not a drawback.',
+            child: Text('Be proud of your attention deficit hyperactivity disorder and all the out-of-the-box thinking, humor, drive, and passion it brings! Read on for some of the best traits of people with ADHD.',
                   // textAlign: TextAlign.center,
                   style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 17.0,
                         // decoration: TextDecoration.underline,
                         color: Colors.black54
                       ),
@@ -121,8 +119,13 @@ class InfoPage extends StatelessWidget {
                   Padding(
                  padding: const EdgeInsets.all(8.0),
                  child: Center(
-                 child: Image.network(
-                    'https://image.freepik.com/free-vector/businessman-after-getting-restful-sleep_24381-844.jpg',
+// <<<<<<< lullaby
+//                  child: Image.network(
+//                     'https://image.freepik.com/free-vector/businessman-after-getting-restful-sleep_24381-844.jpg',
+
+                 child: Image.asset(
+                   "assets/images/energy.png",
+
                     fit: BoxFit.cover,
                     width: MediaQuery.of(context).size.width*0.55,
                     height: MediaQuery.of(context).size.height*0.25,
